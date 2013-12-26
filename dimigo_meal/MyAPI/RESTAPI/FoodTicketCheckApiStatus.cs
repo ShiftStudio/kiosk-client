@@ -3,11 +3,12 @@
     public enum FoodTicketCheckApiStatus
     {
         SUCCESS = 0,
-        E_INVALID_USER = -1,
-        UNKNOWS_ERROR = -500,
+        ALREADY_EATEN = -2,
+        INVALID_USER = -1,
         BANNED = -997,
         NEED_AUTH = -998,
         NEED_UPDATE = -999,
-        NETWORK_ERROR = -501
+        NETWORK_ERROR = -501,
+        UNKNOWN_ERROR = -500
     }
 }

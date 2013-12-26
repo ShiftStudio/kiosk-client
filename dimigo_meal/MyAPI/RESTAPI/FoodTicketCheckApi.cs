@@ -17,7 +17,7 @@ namespace MyAPI.RESTAPI
             else
             {
                 httpHelper.Method = "POST";
-                httpHelper.RequestUri = new Uri("http://api.dimigo.us/json.php");
+                httpHelper.RequestUri = new Uri("http://closeapi.dimigo.hs.kr/meal/check");
                 httpHelper.RequestHeaders["User-Agent"] = "KIOSK1-1";
                 httpHelper.RequestBodyJsonObjects["json"] = request;
             }

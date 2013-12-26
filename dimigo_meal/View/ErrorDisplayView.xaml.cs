@@ -26,7 +26,7 @@ namespace dimigo_meal.View
                 case FoodTicketCheckApiStatus.BANNED:
                     this.PageLimitTime = 8;
                     break;
-                case FoodTicketCheckApiStatus.UNKNOWS_ERROR:
+                case FoodTicketCheckApiStatus.UNKNOWN_ERROR:
                     this.PageLimitTime = 8;
                     break;
                 case FoodTicketCheckApiStatus.NETWORK_ERROR:

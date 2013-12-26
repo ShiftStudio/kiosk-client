@@ -67,6 +67,7 @@
     <Compile Include="MyAPI\RESTAPI\NewDataCheckApiRequest.cs" />
     <Compile Include="MyAPI\RESTAPI\NewDataCheckApiResponse.cs" />
     <Compile Include="MyAPI\RESTAPI\NewDataCheckApiStatus.cs" />
+    <Compile Include="MyAPI\RESTAPI\SSecurityManager.cs" />
     <Compile Include="MyBaseLib\Diagnostics\AppRealCrashException.cs" />
     <Compile Include="MyBaseLib\Diagnostics\DebugEx.cs" />
     <Compile Include="MyBaseLib\Diagnostics\IntendedCrashException.cs" />
@@ -237,6 +238,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MyAPI\LocalAPI\" />
+    <Folder Include="Sockets\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

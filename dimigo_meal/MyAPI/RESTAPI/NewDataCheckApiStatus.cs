@@ -1,6 +1,7 @@
 ﻿namespace MyAPI.RESTAPI
 {
-    public enum NewDataCheckApiStatus
+    //Deprecated
+    public enum _NewDataCheckApiStatus
     {
         SUCCESS = 0,
         E_INVALID_USER = -1,

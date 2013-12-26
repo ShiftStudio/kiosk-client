@@ -14,5 +14,19 @@ namespace MyBaseLib.Network
                 propertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        private double _TimeStamp;
+        public double TimeStamp
+        {
+            get
+            {
+                return this._TimeStamp;
+            }
+            set
+            {
+                this._TimeStamp = value;
+                this.OnPropertyChanged("TimeStamp");
+            }
+        }
     }
 }

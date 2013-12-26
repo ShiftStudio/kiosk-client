@@ -14,7 +14,7 @@ namespace dimigo_meal.View
         {
             if (System.ComponentModel.DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
             {
-                MyAPI.RESTAPI.FoodTicketCheckApiResponse sample = ErrorDisplayViewModel.getSampleData();
+                FoodTicketCheckApiResponse sample = ErrorDisplayViewModel.getSampleData();
                 this.Status = sample.Status;
             }
         }

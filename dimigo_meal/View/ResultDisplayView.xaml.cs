@@ -1,4 +1,5 @@
 ﻿using dimigo_meal.Common;
+using MyAPI.Model;
 using MyAPI.RESTAPI;
 using MyBaseLib.Network;
 using System;
@@ -24,7 +25,7 @@ namespace dimigo_meal.View
 
             switch (this.ViewModel.Event.Status)
             {
-                case MyAPI.Model.clsEventStatus.SUCCESS:
+                case clsEventStatus.SUCCESS:
                     this.PageLimitTime = 3;
                     break;
                 default:

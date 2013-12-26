@@ -1,6 +1,8 @@
 ﻿
-#define DEBUG
+using MyAPI.Model;
+//#define DEBUG
 using MyAPI.RESTAPI;
+using MyBaseLib.Diagnostics;
 using MyBaseLib.Network;
 using System;
 using System.ComponentModel;
@@ -43,7 +45,7 @@ namespace dimigo_meal.View
             _worker.RunWorkerAsync();
 
             #if DEBUG
-            MyAPI.RESTAPI.FoodTicketCheckApiResponse sample = MainWindowViewModel.getSampleData();
+            FoodTicketCheckApiResponse sample = MainWindowViewModel.getSampleData();
             this.ViewModel.MealData = sample.Meal.MealData;
             this.ViewModel.MealState = sample.Meal.MealState;
             this.KeyUp += Grid_KeyUp_1;
@@ -105,20 +107,24 @@ namespace dimigo_meal.View
                 {
                     if (viewModel.MealData.IsUsableRFIDCard)
                     {
+                        //식권에 학생증을 사용할 수 있을때
                         this.MainWindowViewState = MainWindowViewState.RFIDSCAN_VIEW;
                     }
                     else
                     {
+                        //식권에 학생증을 사용할 수 없을때
                         this.MainWindowViewState = MainWindowViewState.NOT_RFIDSCAN_VIEW;
                     }
                 }
                 else
                 {
+                    //식사시간이 아닐 때
                     this.MainWindowViewState = MainWindowViewState.NOT_MEAL_SUPPLY_TIME_VIEW;
                 }
             }
             else
             {
+                //기타
                 this.MainWindowViewState = MainWindowViewState.NORMAL_VIEW;
             }
         }
@@ -190,6 +196,66 @@ namespace dimigo_meal.View
             }
         }
 
+        private void foodTicketCheckApi_ResponseSucceeded(object sender, HttpApiResponseBase e)
+        {
+            FoodTicketCheckApi apiObj = sender as FoodTicketCheckApi;
+            FoodTicketCheckApiResponse response = apiObj.HttpApiResponse as FoodTicketCheckApiResponse;
+
+            this.NavigateResultDisplayView(response);
+        }
+
+        private void foodTicketCheckApi_ResponseFailed(object sender, HttpHelperEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Window_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Enter)
+            {
+                if (this._rfidCodeBuffer.Length != 10)
+                {
+                    DebugEx.WriteLine("Key Input detected but not considered as RFID code");
+                }
+                else if (this.MainWindowViewState != View.MainWindowViewState.RFIDSCAN_VIEW)
+                {
+                    DebugEx.WriteLine("RFID scan not needed");
+                }
+                else
+                {
+                    if (foodTicketCheckApi != null)
+                    {
+                        foodTicketCheckApi.ResponseSucceeded -= this.foodTicketCheckApi_ResponseSucceeded;
+                        foodTicketCheckApi.ResponseFailed -= this.foodTicketCheckApi_ResponseFailed;
+                        foodTicketCheckApi.Cancel();
+                    }
+
+                    //FoodCheck API Call
+                    FoodTicketCheckApiRequest request = new FoodTicketCheckApiRequest()
+                    {
+                        TimeStamp = (DateTime.Now - DateTime.Parse("1970-01-01 09:00:00")).TotalSeconds,
+                        RFIDCode = this._rfidCodeBuffer
+                    };
+
+                    foodTicketCheckApi = new FoodTicketCheckApi();
+                    foodTicketCheckApi.ResponseSucceeded += this.foodTicketCheckApi_ResponseSucceeded;
+                    foodTicketCheckApi.ResponseFailed += this.foodTicketCheckApi_ResponseFailed;
+                    foodTicketCheckApi.Send(request);
+
+                    this._rfidCodeBuffer = string.Empty;
+                }
+            }
+            else
+            {
+                string rawKey = e.Key.ToString().Replace("D", "").Replace("NumPad", "");
+                int i;
+                if (int.TryParse(rawKey, out i))
+                {
+                    this._rfidCodeBuffer += i.ToString();
+                }
+            }
+        }
+
         #endregion Event
 
         #region Method
@@ -234,7 +300,11 @@ namespace dimigo_meal.View
 
         private NewDataCheckApi newDataCheckApi = null;
 
+        private FoodTicketCheckApi foodTicketCheckApi = null;
+
         private DispatcherTimer _timer;
+
+        private String _rfidCodeBuffer = String.Empty;
 
         #endregion Field
 
@@ -255,6 +325,7 @@ namespace dimigo_meal.View
                 {
                     TimeStamp = (DateTime.Now - DateTime.Parse("1970-01-01 09:00:00")).TotalSeconds
                 };
+
                 newDataCheckApi = new NewDataCheckApi();
                 newDataCheckApi.ResponseSucceeded += this.NewDataCheckApi_ResponseSucceeded;
                 newDataCheckApi.ResponseFailed += this.NewDataCheckApi_ResponseFailed;
@@ -265,6 +336,8 @@ namespace dimigo_meal.View
         }
         
         #endregion BackgroundWorker
+
+
 
         #region DEBUG CODE
         #if DEBUG
@@ -299,34 +372,36 @@ namespace dimigo_meal.View
                         App.MainWindow.MainWindowViewState = (MainWindowViewState)(pageIndex);
                         if (pageIndex >= 5)
                         {
-                            MyAPI.RESTAPI.FoodTicketCheckApiResponse response = ResultDisplayViewModel.getSampleData();
+                            FoodTicketCheckApiResponse response = ResultDisplayViewModel.getSampleData();
                             switch (pageIndex)
                             {
                                 case 5:
-                                    response.Status = MyAPI.RESTAPI.FoodTicketCheckApiStatus.SUCCESS;
-                                    response.Event.Status = MyAPI.Model.clsEventStatus.SUCCESS;
+                                    response.Status = FoodTicketCheckApiStatus.SUCCESS;
+                                    response.Event.Status = clsEventStatus.SUCCESS;
                                     response.Event.Message = "급식을 먹을 수 있습니다.";
                                     break;
                                 case 6:
-                                    response.Status = MyAPI.RESTAPI.FoodTicketCheckApiStatus.SUCCESS;
-                                    response.Event.Status = MyAPI.Model.clsEventStatus.BANNED;
+                                    response.Status = FoodTicketCheckApiStatus.SUCCESS;
+                                    response.Event.Status = clsEventStatus.BANNED;
                                     response.Event.Message = "이미 급식을 먹었습니다. ㅗㅗ";
                                     break;
                                 case 7:
                                     pageIndex = -1;
-                                    response.Status = MyAPI.RESTAPI.FoodTicketCheckApiStatus.UNKNOWS_ERROR;
+                                    response.Status = FoodTicketCheckApiStatus.UNKNOWN_ERROR;
                                     response.Title = "알수없는 에러";
                                     response.Message = "에러 ㅜㅜ";
                                     break;
                             }
-                            NavigateResultDisplayViwe(response);
+                            NavigateResultDisplayView(response);
                         }
                         break;
                 }
             }
         }
+        #endif
+        #endregion DEBUG CODE
 
-        private void NavigateResultDisplayViwe(MyAPI.RESTAPI.FoodTicketCheckApiResponse response)
+        private void NavigateResultDisplayView(FoodTicketCheckApiResponse response)
         {
             if (response.Status >= 0)
             {
@@ -338,15 +413,15 @@ namespace dimigo_meal.View
                 App.MainFrame.Navigate(new ResultDisplayView(vm));
 
                 NarrationPlayer sp = new NarrationPlayer();
-                switch (response.Event.Status)
+                switch (response.Status)
                 {
-                    case MyAPI.Model.clsEventStatus.SUCCESS:
+                    case FoodTicketCheckApiStatus.SUCCESS:
                         sp.Play("띵동");
                         break;
-                    case MyAPI.Model.clsEventStatus.BANNED:
+                    case FoodTicketCheckApiStatus.BANNED:
                         sp.Play("띵동");
                         break;
-                    case MyAPI.Model.clsEventStatus.UNKNOWS_ERROR:
+                    case FoodTicketCheckApiStatus.UNKNOWN_ERROR:
                         sp.Play("띵동");
                         break;
                     default:
@@ -369,8 +444,6 @@ namespace dimigo_meal.View
             }
         }
 
-        #endif
-        #endregion DEBUG CODE
 
     }
 }
