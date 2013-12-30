@@ -14,7 +14,7 @@ namespace dimigo_meal
     /// </summary>
     public partial class App : Application
     {
-        private readonly ViewMode VIEWMODE = ViewMode.STUDENT_KIOSK;
+        public static readonly ViewMode KioskViewMode = ViewMode.TEACHER_KIOSK;
 
         static App()
         {
@@ -31,7 +31,7 @@ namespace dimigo_meal
         {
             base.OnStartup(e);
             App.ShowCursor(false);
-            App.MainWindow = new MainWindowView(this.VIEWMODE);
+            App.MainWindow = new MainWindowView();
             App.MainFrame = App.MainWindow.MainFrame;
             App.MainWindow.Show();
         }

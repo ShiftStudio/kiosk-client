@@ -30,7 +30,7 @@ namespace MyAPI.RESTAPI
         protected override HttpApiResponseBase _GenerateResponse(HttpHelperEventArgs httpHelperEventArgs)
         {
             string strResponse = httpHelperEventArgs.Content;
-            HttpApiResponseBase response = JsonConvert.DeserializeObject<FoodTicketTeacherApiResponse>(strResponse);
+            HttpApiResponseBase response = JsonConvert.DeserializeObject<FoodTicketCheckApiResponse>(strResponse);
             response.ResponseStr = strResponse;
             return response;
         }

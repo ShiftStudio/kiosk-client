@@ -64,10 +64,10 @@
     <Compile Include="Common\PopupPage.cs" />
     <Compile Include="MyAPI\Model\clsEventStatus.cs" />
     <Compile Include="MyAPI\RESTAPI\FoodTicketTeacherApi.cs" />
-    <Compile Include="MyAPI\RESTAPI\FoodTicketTeacherApiResponse.cs" />
     <Compile Include="MyAPI\RESTAPI\NewDataCheckApi.cs" />
     <Compile Include="MyAPI\RESTAPI\NewDataCheckApiRequest.cs" />
     <Compile Include="MyAPI\RESTAPI\NewDataCheckApiResponse.cs" />
+    <Compile Include="Common\RFIDReaderViewBaseEx.cs" />
     <Compile Include="MyAPI\RESTAPI\SSecurityManager.cs" />
     <Compile Include="MyAPI\RESTAPI\FoodTicketTeacherApiRequest.cs" />
     <Compile Include="MyBaseLib\Diagnostics\AppRealCrashException.cs" />
@@ -83,8 +83,8 @@
     <Compile Include="MyBaseLib\Network\HttpHelperUploadProgressEventArgs.cs" />
     <Compile Include="MyBaseLib\Network\HttpSchemeType.cs" />
     <Compile Include="Common\RFIDReaderPageBase.cs" />
-    <Compile Include="MyAPI\RESTAPI\FoodTicketCheckApi.cs" />
-    <Compile Include="MyAPI\RESTAPI\FoodTicketCheckApiRequest.cs" />
+    <Compile Include="MyAPI\RESTAPI\FoodTicketStudentApi.cs" />
+    <Compile Include="MyAPI\RESTAPI\FoodTicketStudentApiRequest.cs" />
     <Compile Include="MyAPI\RESTAPI\FoodTicketCheckApiResponse.cs" />
     <Compile Include="MyAPI\RESTAPI\ApiStatus.cs" />
     <Compile Include="MyAPI\Model\clsError.cs" />
@@ -142,8 +142,8 @@
     <Compile Include="View_Teacher\NormalViewTeacher.xaml.cs">
       <DependentUpon>NormalViewTeacher.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View_Teacher\RFIDScanViewWithButton.xaml.cs">
-      <DependentUpon>RFIDScanViewWithButton.xaml</DependentUpon>
+    <Compile Include="View_Teacher\RFIDScanViewTeacher.xaml.cs">
+      <DependentUpon>RFIDScanViewTeacher.xaml</DependentUpon>
     </Compile>
     <Page Include="View_Common\MainWindowView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -209,7 +209,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View_Teacher\RFIDScanViewWithButton.xaml">
+    <Page Include="View_Teacher\RFIDScanViewTeacher.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -262,7 +262,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MyAPI\LocalAPI\" />
-    <Folder Include="Sockets\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

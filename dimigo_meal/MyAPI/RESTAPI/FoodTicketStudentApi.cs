@@ -6,11 +6,11 @@ using System;
 
 namespace MyAPI.RESTAPI
 {
-    public class FoodTicketCheckApi : HttpApiBase
+    public class FoodTicketStudentApi : HttpApiBase
     {
         protected override void _GenerateRequest(HttpHelper httpHelper, HttpApiRequestBase httpApiRequest)
         {
-            FoodTicketCheckApiRequest request = httpApiRequest as FoodTicketCheckApiRequest;
+            FoodTicketStudentApiRequest request = httpApiRequest as FoodTicketStudentApiRequest;
             if (request == null)
             {
                 DebugEx.Assert(false, "request을 확인해 주세요");

@@ -1,4 +1,5 @@
 ﻿using dimigo_meal.Common;
+using dimigo_meal.MyAPI.RESTAPI;
 using MyAPI.RESTAPI;
 using System;
 
@@ -7,9 +8,9 @@ namespace dimigo_meal.View
     /// <summary>
     /// RFIDScanViewWithButton.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class RFIDScanViewWithButton : RFIDReaderViewBase
+    public partial class RFIDScanViewTeacher : RFIDReaderViewBaseEx
     {
-        public RFIDScanViewWithButton()
+        public RFIDScanViewTeacher()
         {
             InitializeComponent();
         }
@@ -22,8 +23,8 @@ namespace dimigo_meal.View
                 TimeStamp = (DateTime.Now - DateTime.Parse("1970-01-01 09:00:00")).TotalSeconds
             };
             FoodTicketTeacherApi api = new FoodTicketTeacherApi();
-            //api.ResponseSucceeded += this.Api_ResponseSucceeded;
-            //api.ResponseFailed += this.Api_ResponseFailed;
+            api.ResponseSucceeded += base.Api_ResponseSucceeded;
+            api.ResponseFailed += base.Api_ResponseFailed;
             api.Send(request);
         }
     }

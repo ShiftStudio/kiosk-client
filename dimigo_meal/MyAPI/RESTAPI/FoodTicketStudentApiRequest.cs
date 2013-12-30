@@ -2,7 +2,7 @@
 
 namespace MyAPI.RESTAPI
 {
-    public class FoodTicketCheckApiRequest : HttpApiRequestBase
+    public class FoodTicketStudentApiRequest : HttpApiRequestBase
     {
         private string _RFIDCode;
         public string RFIDCode

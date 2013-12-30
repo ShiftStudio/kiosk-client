@@ -57,13 +57,13 @@ namespace dimigo_meal.View
 
         protected override void RFIDCode_Received(string RFIDCode)
         {
-            FoodTicketCheckApiRequest request = new FoodTicketCheckApiRequest
+            FoodTicketStudentApiRequest request = new FoodTicketStudentApiRequest
             {
                 RFIDCode = RFIDCode,
                 TimeStamp = (DateTime.Now - DateTime.Parse("1970-01-01 09:00:00")).TotalSeconds,
                         
             };
-            FoodTicketCheckApi api = new FoodTicketCheckApi();
+            FoodTicketStudentApi api = new FoodTicketStudentApi();
             api.ResponseSucceeded += this.Api_ResponseSucceeded;
             api.ResponseFailed += this.Api_ResponseFailed;
             api.Send(request);
@@ -71,8 +71,8 @@ namespace dimigo_meal.View
 
         private void Api_ResponseSucceeded(object sender, HttpApiResponseBase e)
         {
-            FoodTicketCheckApi apiObj = sender as FoodTicketCheckApi;
-            FoodTicketCheckApiRequest request = apiObj.HttpApiRequest as FoodTicketCheckApiRequest;
+            FoodTicketStudentApi apiObj = sender as FoodTicketStudentApi;
+            FoodTicketStudentApiRequest request = apiObj.HttpApiRequest as FoodTicketStudentApiRequest;
             FoodTicketCheckApiResponse response = apiObj.HttpApiResponse as FoodTicketCheckApiResponse;
 
             if (response.Status >= 0)
@@ -110,8 +110,8 @@ namespace dimigo_meal.View
 
         private void Api_ResponseFailed(object sender, HttpHelperEventArgs e)
         {
-            FoodTicketCheckApi apiObj = sender as FoodTicketCheckApi;
-            FoodTicketCheckApiRequest request = apiObj.HttpApiRequest as FoodTicketCheckApiRequest;
+            FoodTicketStudentApi apiObj = sender as FoodTicketStudentApi;
+            FoodTicketStudentApiRequest request = apiObj.HttpApiRequest as FoodTicketStudentApiRequest;
             FoodTicketCheckApiResponse response = apiObj.HttpApiResponse as FoodTicketCheckApiResponse;
 
             if (e == null)
