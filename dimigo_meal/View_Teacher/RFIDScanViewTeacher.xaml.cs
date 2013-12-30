@@ -27,5 +27,11 @@ namespace dimigo_meal.View
             api.ResponseFailed += base.Api_ResponseFailed;
             api.Send(request);
         }
+
+        private void btn_Cancel_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            //wow
+            App.GoHomeCommand.Execute(null);
+        }
     }
 }

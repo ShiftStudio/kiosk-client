@@ -8,9 +8,12 @@ namespace dimigo_meal.MyAPI.RESTAPI
 {
     public class SSecurityManager
     {
-        public static string SerializeAuth(HttpApiRequestBase apibase)
+        public static string SerializeAuth(HttpApiRequestBase apibase, Uri desturl)
         {
             double timestamp = apibase.TimeStamp;
+            string urls = desturl.ToString();
+
+            string rv = urls + timestamp.ToString();
 
             return "";
         }

@@ -7,8 +7,8 @@
 
     <Grid Width="800">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="30,30,35,30">
-            <Button Content="교직원 식사 확인" FontSize="20" Width="300" Height="200" Margin="60" FontFamily="KoPubDotum Bold" Click="Button_Click"/>
-            <Button Content="학생 식권 현장 발급" FontSize="20" Width="300" Height="200" Margin="60" FontFamily="KoPubDotum Bold"/>
+            <Button x:Name="btn_CheckTeacherMeal" Content="교직원 식사 확인" FontSize="20" Width="300" Height="200" Margin="60" FontFamily="KoPubDotum Bold" Click="btn_CheckTeacherMeal_Click"/>
+            <Button x:Name="btn_AddNewStudentMeal" Content="학생 식권 현장 발급" FontSize="20" Width="300" Height="200" Margin="60" FontFamily="KoPubDotum Bold" Click="btn_AddNewStudentMeal_Click"/>
         </StackPanel>
     </Grid>
 </Page>

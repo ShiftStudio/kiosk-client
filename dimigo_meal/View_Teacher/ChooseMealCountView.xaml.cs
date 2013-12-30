@@ -23,5 +23,10 @@ namespace dimigo_meal.View
         {
             InitializeComponent();
         }
+
+        private void btn_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            App.GoHomeCommand.Execute(null);
+        }
     }
 }

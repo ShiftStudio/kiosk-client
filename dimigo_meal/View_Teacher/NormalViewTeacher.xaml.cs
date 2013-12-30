@@ -24,9 +24,16 @@ namespace dimigo_meal.View
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btn_CheckTeacherMeal_Click(object sender, RoutedEventArgs e)
         {
-
+            App.MainWindow.MainWindowViewState = MainWindowViewState.MEAL_COUNTCH_VIEW;
         }
+
+        private void btn_AddNewStudentMeal_Click(object sender, RoutedEventArgs e)
+        {
+            //if(App.MainWindow.ViewModel.
+            App.MainWindow.MainWindowViewState = MainWindowViewState.RFIDSCAN_VIEW_STUDENT;
+        }
+
     }
 }

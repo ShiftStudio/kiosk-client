@@ -25,9 +25,6 @@ namespace dimigo_meal.View
         {
             InitializeComponent();
 
-            //set only once
-            this._kioskViewMode = App.KioskViewMode;
-
             //send it to second screen
             Screen secondaryScreen = this.GetSecondaryScreen();
             this.Left = secondaryScreen.Bounds.Left;
@@ -91,14 +88,6 @@ namespace dimigo_meal.View
             }
         }
 
-        public ViewMode KioskViewMode
-        {
-            get
-            {
-                return _kioskViewMode;
-            }
-        }
-
         public Uri HomePageUri { get; set; }
 
         #endregion Properties
@@ -120,7 +109,7 @@ namespace dimigo_meal.View
                     //"KioskViewMode" should be passed down through admin program later.
                     //Teacher Kiosk always require RFID Card
                     //we do not disturb other view
-                    if (this.KioskViewMode == ViewMode.TEACHER_KIOSK &&
+                    if (App.KioskViewMode == ViewMode.TEACHER_KIOSK &&
                         (this.MainWindowViewState == MainWindowViewState.NOT_MEAL_SUPPLY_TIME_VIEW ||
                         this.MainWindowViewState == MainWindowViewState.NORMAL_VIEW))
                     {
@@ -324,9 +313,7 @@ namespace dimigo_meal.View
             }
         }
         
-        #endregion BackgroundWorker
-
-
+        #endregion BackgroundWorker 
 
         #region DEBUG CODE
         #if DEBUG

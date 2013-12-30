@@ -22,7 +22,7 @@ namespace MyAPI.RESTAPI
             {
                 httpHelper.Method = "POST";
                 httpHelper.RequestUri = new Uri("http://y.suseme.me/meal/verify/teacher");
-                httpHelper.RequestHeaders["User-Agent"] = SSecurityManager.SerializeAuth(request as HttpApiRequestBase);
+                httpHelper.RequestHeaders["User-Agent"] = SSecurityManager.SerializeAuth(request as HttpApiRequestBase, httpHelper.RequestUri);
                 httpHelper.RequestBodyJsonObjects["data"] = request;
             }
         }

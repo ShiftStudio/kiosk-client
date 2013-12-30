@@ -4,10 +4,25 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
-	Title="ChooseMealCountView">
+      d:DesignHeight="300"
+	Title="ChooseMealCountView" Width="800">
 
     <Grid>
-        
+        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" FontSize="16" Margin="120,20,340,0">
+            <LineBreak/>    
+            <Run FontWeight="Bold" Text="식사할 인원수를 선택해 주세요." FontSize="22"/>
+            <LineBreak/>
+        </TextBlock>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="130" Margin="0,75,0,80" Width="800">
+            <Button Content="1" Width="90" Margin="20" FontFamily="KoPubDotum Bold" FontSize="25"/>
+            <Button Content="2" Width="90" Margin="20" FontFamily="KoPubDotum Bold" FontSize="25"/>
+            <Button Content="3" Width="90" Margin="20" FontFamily="KoPubDotum Bold" FontSize="25"/>
+            <Button Content="4" Width="90" Margin="20" FontFamily="KoPubDotum Bold" FontSize="25"/>
+            <Button Content="5" Width="90" Margin="20" FontFamily="KoPubDotum Bold" FontSize="25"/>
+            <Button Content="6" Width="90" Margin="20" FontFamily="KoPubDotum Bold" FontSize="25"/>
+        </StackPanel>
+        <Button x:Name="btn_Okay" Content="아무것도 없음" HorizontalAlignment="Left" Margin="225,225,0,0" VerticalAlignment="Top" Width="145" Click="btn_Cancel_Click" Height="45" FontFamily="KoPubDotum Bold" FontSize="25"/>
+        <Button x:Name="btn_Cancel" Content="아무것도 없음" HorizontalAlignment="Left" Margin="410,225,0,0" VerticalAlignment="Top" Width="145" Click="btn_Cancel_Click" Height="45" FontFamily="KoPubDotum Bold" FontSize="25"/>
+
     </Grid>
 </Page>
