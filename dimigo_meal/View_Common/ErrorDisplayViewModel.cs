@@ -29,8 +29,8 @@ namespace dimigo_meal.View
 
         #region Properties
 
-        private FoodTicketCheckApiStatus _status;
-        public FoodTicketCheckApiStatus Status
+        private ApiStatus _status;
+        public ApiStatus Status
         {
             get
             {

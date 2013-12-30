@@ -1,4 +1,5 @@
-﻿using MyBaseLib.Diagnostics;
+﻿using dimigo_meal.MyAPI.RESTAPI;
+using MyBaseLib.Diagnostics;
 using MyBaseLib.Network;
 using Newtonsoft.Json;
 using System;
@@ -17,9 +18,9 @@ namespace MyAPI.RESTAPI
             else
             {
                 httpHelper.Method = "POST";
-                httpHelper.RequestUri = new Uri("http://closeapi.dimigo.hs.kr/meal/check");
-                httpHelper.RequestHeaders["User-Agent"] = "KIOSK1-1";
-                httpHelper.RequestBodyJsonObjects["json"] = request;
+                httpHelper.RequestUri = new Uri("http://y.suseme.me/meal/verify/student");
+                httpHelper.RequestHeaders["User-Agent"] = SSecurityManager.SerializeAuth(request as HttpApiRequestBase);
+                httpHelper.RequestBodyJsonObjects["data"] = request;
             }
         }
 

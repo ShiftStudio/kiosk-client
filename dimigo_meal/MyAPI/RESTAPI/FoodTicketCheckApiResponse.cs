@@ -4,8 +4,8 @@ namespace MyAPI.RESTAPI
 {
     public class FoodTicketCheckApiResponse : HttpApiResponseBaseEx
     {
-        private FoodTicketCheckApiStatus _status;
-        public FoodTicketCheckApiStatus Status
+        private ApiStatus _status;
+        public ApiStatus Status
         {
             get
             {

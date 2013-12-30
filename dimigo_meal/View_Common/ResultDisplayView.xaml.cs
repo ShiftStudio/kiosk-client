@@ -59,7 +59,9 @@ namespace dimigo_meal.View
         {
             FoodTicketCheckApiRequest request = new FoodTicketCheckApiRequest
             {
-                RFIDCode = RFIDCode
+                RFIDCode = RFIDCode,
+                TimeStamp = (DateTime.Now - DateTime.Parse("1970-01-01 09:00:00")).TotalSeconds,
+                        
             };
             FoodTicketCheckApi api = new FoodTicketCheckApi();
             api.ResponseSucceeded += this.Api_ResponseSucceeded;
@@ -120,7 +122,7 @@ namespace dimigo_meal.View
             {
                 ErrorDisplayViewModel vm = new ErrorDisplayViewModel()
                 {
-                    Status = FoodTicketCheckApiStatus.NETWORK_ERROR,
+                    Status = ApiStatus.NETWORK_ERROR,
                     Title = "네트워크 에러",
                     Message = e.ExceptionObj.Message
                 };
@@ -130,7 +132,7 @@ namespace dimigo_meal.View
             {
                 ErrorDisplayViewModel vm = new ErrorDisplayViewModel()
                 {
-                    Status = FoodTicketCheckApiStatus.NETWORK_ERROR,
+                    Status = ApiStatus.NETWORK_ERROR,
                     Title = "네트워크 에러",
                     Message = e.ExceptionObj.Message
                 };

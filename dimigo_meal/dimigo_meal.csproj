@@ -63,11 +63,13 @@
     <Compile Include="Common\MyVideoPlayer.cs" />
     <Compile Include="Common\PopupPage.cs" />
     <Compile Include="MyAPI\Model\clsEventStatus.cs" />
+    <Compile Include="MyAPI\RESTAPI\FoodTicketTeacherApi.cs" />
+    <Compile Include="MyAPI\RESTAPI\FoodTicketTeacherApiResponse.cs" />
     <Compile Include="MyAPI\RESTAPI\NewDataCheckApi.cs" />
     <Compile Include="MyAPI\RESTAPI\NewDataCheckApiRequest.cs" />
     <Compile Include="MyAPI\RESTAPI\NewDataCheckApiResponse.cs" />
-    <Compile Include="MyAPI\RESTAPI\NewDataCheckApiStatus.cs" />
     <Compile Include="MyAPI\RESTAPI\SSecurityManager.cs" />
+    <Compile Include="MyAPI\RESTAPI\FoodTicketTeacherApiRequest.cs" />
     <Compile Include="MyBaseLib\Diagnostics\AppRealCrashException.cs" />
     <Compile Include="MyBaseLib\Diagnostics\DebugEx.cs" />
     <Compile Include="MyBaseLib\Diagnostics\IntendedCrashException.cs" />
@@ -84,7 +86,7 @@
     <Compile Include="MyAPI\RESTAPI\FoodTicketCheckApi.cs" />
     <Compile Include="MyAPI\RESTAPI\FoodTicketCheckApiRequest.cs" />
     <Compile Include="MyAPI\RESTAPI\FoodTicketCheckApiResponse.cs" />
-    <Compile Include="MyAPI\RESTAPI\FoodTicketCheckApiStatus.cs" />
+    <Compile Include="MyAPI\RESTAPI\ApiStatus.cs" />
     <Compile Include="MyAPI\Model\clsError.cs" />
     <Compile Include="MyAPI\Model\clsEvent.cs" />
     <Compile Include="MyAPI\Model\clsFood.cs" />
@@ -95,45 +97,55 @@
     <Compile Include="MyAPI\Model\HttpApiRequestBaseEx.cs" />
     <Compile Include="MyAPI\Common\NotifiableModelBase.cs" />
     <Compile Include="NarrationPlayer.cs" />
-    <Compile Include="View\MainWindowViewModel.cs" />
+    <Compile Include="View_Common\MainWindowViewModel.cs" />
     <Compile Include="Common\BindingEx.cs" />
     <Compile Include="Common\DelegateCommand.cs" />
     <Compile Include="Common\ViewModelBase.cs" />
-    <Compile Include="View\MainWindowViewState.cs" />
-    <Compile Include="View\ResultDisplayViewModel.cs" />
+    <Compile Include="View_Common\MainWindowViewState.cs" />
+    <Compile Include="View_Common\ViewMode.cs" />
+    <Compile Include="View_Common\ResultDisplayViewModel.cs" />
     <Compile Include="Common\RichTextBlock.cs" />
-    <Compile Include="View\ResultDisplayView.xaml.cs">
+    <Compile Include="View_Common\ResultDisplayView.xaml.cs">
       <DependentUpon>ResultDisplayView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\NormalView.xaml.cs">
+    <Compile Include="View_Common\NormalView.xaml.cs">
       <DependentUpon>NormalView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\RFIDScanView.xaml.cs">
-      <DependentUpon>RFIDScanView.xaml</DependentUpon>
+    <Compile Include="View_Student\RFIDScanViewStudent.xaml.cs">
+      <DependentUpon>RFIDScanViewStudent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\NotRFIDScanView.xaml.cs">
+    <Compile Include="View_Student\NotRFIDScanView.xaml.cs">
       <DependentUpon>NotRFIDScanView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewTamplate\MealContainer1.xaml.cs">
+    <Compile Include="View_Common\ViewTemplate\MealContainer1.xaml.cs">
       <DependentUpon>MealContainer1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewTamplate\MealContainer2.xaml.cs">
+    <Compile Include="View_Common\ViewTemplate\MealContainer2.xaml.cs">
       <DependentUpon>MealContainer2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewTamplate\MealContainer3.xaml.cs">
+    <Compile Include="View_Common\ViewTemplate\MealContainer3.xaml.cs">
       <DependentUpon>MealContainer3.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewTamplate\MealHeader.xaml.cs">
+    <Compile Include="View_Common\ViewTemplate\MealHeader.xaml.cs">
       <DependentUpon>MealHeader.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\NotMealSupplyTimeView.xaml.cs">
+    <Compile Include="View_Common\NotMealSupplyTimeView.xaml.cs">
       <DependentUpon>NotMealSupplyTimeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ErrorDisplayView.xaml.cs">
+    <Compile Include="View_Common\ErrorDisplayView.xaml.cs">
       <DependentUpon>ErrorDisplayView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ErrorDisplayViewModel.cs" />
-    <Page Include="View\MainWindowView.xaml">
+    <Compile Include="View_Common\ErrorDisplayViewModel.cs" />
+    <Compile Include="View_Teacher\ChooseMealCountView.xaml.cs">
+      <DependentUpon>ChooseMealCountView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View_Teacher\NormalViewTeacher.xaml.cs">
+      <DependentUpon>NormalViewTeacher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View_Teacher\RFIDScanViewWithButton.xaml.cs">
+      <DependentUpon>RFIDScanViewWithButton.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View_Common\MainWindowView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -141,7 +153,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\MainWindowView.xaml.cs">
+    <Compile Include="View_Common\MainWindowView.xaml.cs">
       <DependentUpon>MainWindowView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -149,45 +161,57 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ResultDisplayView.xaml">
+    <Page Include="View_Common\ResultDisplayView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\NormalView.xaml">
+    <Page Include="View_Common\NormalView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\RFIDScanView.xaml">
+    <Page Include="View_Student\RFIDScanViewStudent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\NotRFIDScanView.xaml">
+    <Page Include="View_Student\NotRFIDScanView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\ViewTamplate\MealContainer1.xaml">
+    <Page Include="View_Common\ViewTemplate\MealContainer1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\ViewTamplate\MealContainer2.xaml">
+    <Page Include="View_Common\ViewTemplate\MealContainer2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\ViewTamplate\MealContainer3.xaml">
+    <Page Include="View_Common\ViewTemplate\MealContainer3.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\ViewTamplate\MealHeader.xaml">
+    <Page Include="View_Common\ViewTemplate\MealHeader.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\NotMealSupplyTimeView.xaml">
+    <Page Include="View_Common\NotMealSupplyTimeView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\ErrorDisplayView.xaml">
+    <Page Include="View_Common\ErrorDisplayView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View_Teacher\ChooseMealCountView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View_Teacher\NormalViewTeacher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View_Teacher\RFIDScanViewWithButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

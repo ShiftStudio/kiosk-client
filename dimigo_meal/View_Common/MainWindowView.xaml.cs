@@ -21,10 +21,14 @@ namespace dimigo_meal.View
 
         #region Constructor
 
-        public MainWindowView()
+        public MainWindowView(ViewMode kioskViewMode)
         {
             InitializeComponent();
 
+            //set only once
+            this._kioskViewMode = kioskViewMode;
+
+            //send it to second screen
             Screen secondaryScreen = this.GetSecondaryScreen();
             this.Left = secondaryScreen.Bounds.Left;
             this.Top = secondaryScreen.Bounds.Top;
@@ -87,6 +91,14 @@ namespace dimigo_meal.View
             }
         }
 
+        public ViewMode KioskViewMode
+        {
+            get
+            {
+                return _kioskViewMode;
+            }
+        }
+
         public Uri HomePageUri { get; set; }
 
         #endregion Properties
@@ -98,7 +110,7 @@ namespace dimigo_meal.View
             MainWindowViewModel viewModel = this.ViewModel;
             viewModel.Now = DateTime.Now;
 
-            this.MainWindowViewState = MainWindowViewState.RFIDSCAN_VIEW;
+            this.MainWindowViewState = MainWindowViewState.RFIDSCAN_VIEW_STUDENT;
 
             //return;
             if (viewModel.MealData.MealStartTime <= viewModel.Now && viewModel.Now <= viewModel.MealData.MealStopTime)
@@ -108,7 +120,7 @@ namespace dimigo_meal.View
                     if (viewModel.MealData.IsUsableRFIDCard)
                     {
                         //식권에 학생증을 사용할 수 있을때
-                        this.MainWindowViewState = MainWindowViewState.RFIDSCAN_VIEW;
+                        this.MainWindowViewState = MainWindowViewState.RFIDSCAN_VIEW_STUDENT;
                     }
                     else
                     {
@@ -136,24 +148,36 @@ namespace dimigo_meal.View
                 case MainWindowViewState.NORMAL_VIEW:
                     this.MainHeader.Visibility = Visibility.Visible;
                     this.SubHeader3.Visibility = Visibility.Visible;
-                    this.HomePageUri = new Uri("View/NormalView.xaml", UriKind.Relative);
+                    this.HomePageUri = new Uri("View_Common/NormalView.xaml", UriKind.Relative);
                     this.Navigate(this.HomePageUri);
                     break;
                 case MainWindowViewState.NOT_MEAL_SUPPLY_TIME_VIEW:
                     this.MainHeader.Visibility = Visibility.Visible;
                     this.SubHeader3.Visibility = Visibility.Visible; // 쓸떄도, 안쓸떄도...
-                    this.HomePageUri = new Uri("View/NotMealSupplyTimeView.xaml", UriKind.Relative);
+                    this.HomePageUri = new Uri("View_Common/NotMealSupplyTimeView.xaml", UriKind.Relative);
                     this.Navigate(this.HomePageUri);
                     break;
                 case MainWindowViewState.NOT_RFIDSCAN_VIEW:
                     this.MainHeader.Visibility = Visibility.Collapsed;
-                    this.HomePageUri = new Uri("View/NotRFIDScanView.xaml", UriKind.Relative);
+                    this.HomePageUri = new Uri("View_Common/NotRFIDScanView.xaml", UriKind.Relative);
                     this.Navigate(this.HomePageUri);
                     break;
-                case MainWindowViewState.RFIDSCAN_VIEW:
+                case MainWindowViewState.RFIDSCAN_VIEW_STUDENT:
                     this.MainHeader.Visibility = Visibility.Visible;
                     this.SubHeader3.Visibility = Visibility.Visible; // 쓸떄도, 안쓸떄도...
-                    this.HomePageUri = new Uri("View/RFIDScanView.xaml", UriKind.Relative);
+                    this.HomePageUri = new Uri("View_Student/RFIDScanViewStudent.xaml", UriKind.Relative);
+                    this.Navigate(this.HomePageUri);
+                    break;
+                case MainWindowViewState.RFIDSCAN_VIEW_TEACHER:
+                    this.MainHeader.Visibility = Visibility.Visible;
+                    this.SubHeader3.Visibility = Visibility.Visible;
+                    this.HomePageUri = new Uri("View_Teacher/RFIDScanViewTeacher.xaml", UriKind.Relative);
+                    this.Navigate(this.HomePageUri);
+                    break;
+                case MainWindowViewState.MEAL_COUNTCH_VIEW:
+                    this.MainHeader.Visibility = Visibility.Visible;
+                    this.SubHeader3.Visibility = Visibility.Visible;
+                    this.HomePageUri = new Uri("View_Teacher/ChooseMealCountView.xaml", UriKind.Relative);
                     this.Navigate(this.HomePageUri);
                     break;
             }
@@ -196,64 +220,8 @@ namespace dimigo_meal.View
             }
         }
 
-        private void foodTicketCheckApi_ResponseSucceeded(object sender, HttpApiResponseBase e)
-        {
-            FoodTicketCheckApi apiObj = sender as FoodTicketCheckApi;
-            FoodTicketCheckApiResponse response = apiObj.HttpApiResponse as FoodTicketCheckApiResponse;
-
-            this.NavigateResultDisplayView(response);
-        }
-
-        private void foodTicketCheckApi_ResponseFailed(object sender, HttpHelperEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void Window_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            if (e.Key == System.Windows.Input.Key.Enter)
-            {
-                if (this._rfidCodeBuffer.Length != 10)
-                {
-                    DebugEx.WriteLine("Key Input detected but not considered as RFID code");
-                }
-                else if (this.MainWindowViewState != View.MainWindowViewState.RFIDSCAN_VIEW)
-                {
-                    DebugEx.WriteLine("RFID scan not needed");
-                }
-                else
-                {
-                    if (foodTicketCheckApi != null)
-                    {
-                        foodTicketCheckApi.ResponseSucceeded -= this.foodTicketCheckApi_ResponseSucceeded;
-                        foodTicketCheckApi.ResponseFailed -= this.foodTicketCheckApi_ResponseFailed;
-                        foodTicketCheckApi.Cancel();
-                    }
-
-                    //FoodCheck API Call
-                    FoodTicketCheckApiRequest request = new FoodTicketCheckApiRequest()
-                    {
-                        TimeStamp = (DateTime.Now - DateTime.Parse("1970-01-01 09:00:00")).TotalSeconds,
-                        RFIDCode = this._rfidCodeBuffer
-                    };
-
-                    foodTicketCheckApi = new FoodTicketCheckApi();
-                    foodTicketCheckApi.ResponseSucceeded += this.foodTicketCheckApi_ResponseSucceeded;
-                    foodTicketCheckApi.ResponseFailed += this.foodTicketCheckApi_ResponseFailed;
-                    foodTicketCheckApi.Send(request);
-
-                    this._rfidCodeBuffer = string.Empty;
-                }
-            }
-            else
-            {
-                string rawKey = e.Key.ToString().Replace("D", "").Replace("NumPad", "");
-                int i;
-                if (int.TryParse(rawKey, out i))
-                {
-                    this._rfidCodeBuffer += i.ToString();
-                }
-            }
         }
 
         #endregion Event
@@ -296,6 +264,8 @@ namespace dimigo_meal.View
 
         private MainWindowViewState _mainWindowViewState = MainWindowViewState.NORMAL_VIEW;
 
+        private ViewMode _kioskViewMode = ViewMode.STUDENT_KIOSK;
+
         private BackgroundWorker _worker;
 
         private NewDataCheckApi newDataCheckApi = null;
@@ -331,7 +301,8 @@ namespace dimigo_meal.View
                 newDataCheckApi.ResponseFailed += this.NewDataCheckApi_ResponseFailed;
                 newDataCheckApi.Send(request);
 
-                Thread.Sleep(1000);
+                //1초마다 한번씩은 너무 심하잖아
+                Thread.Sleep(5000);
             }
         }
         
@@ -343,7 +314,7 @@ namespace dimigo_meal.View
         #if DEBUG
 
         int pageIndex = 0;
-
+        
         private void Grid_KeyUp_1(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == System.Windows.Input.Key.Q)
@@ -376,19 +347,29 @@ namespace dimigo_meal.View
                             switch (pageIndex)
                             {
                                 case 5:
-                                    response.Status = FoodTicketCheckApiStatus.SUCCESS;
+                                    response.Status = ApiStatus.SUCCESS;
                                     response.Event.Status = clsEventStatus.SUCCESS;
                                     response.Event.Message = "급식을 먹을 수 있습니다.";
                                     break;
                                 case 6:
-                                    response.Status = FoodTicketCheckApiStatus.SUCCESS;
+                                    response.Status = ApiStatus.SUCCESS;
                                     response.Event.Status = clsEventStatus.BANNED;
                                     response.Event.Message = "이미 급식을 먹었습니다. ㅗㅗ";
                                     break;
                                 case 7:
-                                    pageIndex = -1;
-                                    response.Status = FoodTicketCheckApiStatus.UNKNOWN_ERROR;
+                                    response.Status = ApiStatus.SUCCESS;
+                                    response.Event.Status = clsEventStatus.INVALID_USER;
+                                    response.Event.Message = "확인되지 않는 학생증입니다.";
+                                    break;
+                                case 8:
+                                    response.Status = ApiStatus.UNKNOWN_ERROR;
                                     response.Title = "알수없는 에러";
+                                    response.Message = "에러 ㅜㅜ";
+                                    break;
+                                case 9:
+                                    pageIndex = -1;
+                                    response.Status = ApiStatus.NETWORK_ERROR;
+                                    response.Title = "네트워크 에러";
                                     response.Message = "에러 ㅜㅜ";
                                     break;
                             }
@@ -415,13 +396,13 @@ namespace dimigo_meal.View
                 NarrationPlayer sp = new NarrationPlayer();
                 switch (response.Status)
                 {
-                    case FoodTicketCheckApiStatus.SUCCESS:
+                    case ApiStatus.SUCCESS:
                         sp.Play("띵동");
                         break;
-                    case FoodTicketCheckApiStatus.BANNED:
+                    case ApiStatus.NETWORK_ERROR:
                         sp.Play("띵동");
                         break;
-                    case FoodTicketCheckApiStatus.UNKNOWN_ERROR:
+                    case ApiStatus.UNKNOWN_ERROR:
                         sp.Play("띵동");
                         break;
                     default:

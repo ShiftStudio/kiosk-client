@@ -3,14 +3,17 @@ using MyBaseLib.Diagnostics;
 using MyBaseLib.Network;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace MyAPI.RESTAPI
 {
-    public class NewDataCheckApi : HttpApiBase
+    public class FoodTicketTeacherApi : HttpApiBase
     {
         protected override void _GenerateRequest(HttpHelper httpHelper, HttpApiRequestBase httpApiRequest)
         {
-            NewDataCheckApiRequest request = httpApiRequest as NewDataCheckApiRequest;
+            FoodTicketTeacherApiRequest request = httpApiRequest as FoodTicketTeacherApiRequest;
             if (request == null)
             {
                 DebugEx.Assert(false, "request을 확인해 주세요");
@@ -18,7 +21,7 @@ namespace MyAPI.RESTAPI
             else
             {
                 httpHelper.Method = "POST";
-                httpHelper.RequestUri = new Uri("http://suseme.me/meal/new");
+                httpHelper.RequestUri = new Uri("http://y.suseme.me/meal/verify/teacher");
                 httpHelper.RequestHeaders["User-Agent"] = SSecurityManager.SerializeAuth(request as HttpApiRequestBase);
                 httpHelper.RequestBodyJsonObjects["data"] = request;
             }
@@ -27,7 +30,7 @@ namespace MyAPI.RESTAPI
         protected override HttpApiResponseBase _GenerateResponse(HttpHelperEventArgs httpHelperEventArgs)
         {
             string strResponse = httpHelperEventArgs.Content;
-            HttpApiResponseBase response = JsonConvert.DeserializeObject<NewDataCheckApiResponse>(strResponse);
+            HttpApiResponseBase response = JsonConvert.DeserializeObject<FoodTicketTeacherApiResponse>(strResponse);
             response.ResponseStr = strResponse;
             return response;
         }

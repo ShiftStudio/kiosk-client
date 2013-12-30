@@ -4,8 +4,8 @@ namespace MyAPI.RESTAPI
 {
     public class NewDataCheckApiResponse : HttpApiResponseBaseEx
     {
-        private FoodTicketCheckApiStatus _status;
-        public FoodTicketCheckApiStatus Status
+        private ApiStatus _status;
+        public ApiStatus Status
         {
             get
             {
@@ -18,21 +18,21 @@ namespace MyAPI.RESTAPI
             }
         }
 
-        private clsPeople _user;
-        public clsPeople User
+        private clsMeal _meal;
+        public clsMeal Meal
         {
             get
             {
-                return this._user;
+                return this._meal;
             }
             set
             {
-                this._user = value;
-                this.OnPropertyChanged("User");
+                this._meal = value;
+                this.OnPropertyChanged("Meal");
             }
         }
 
-        private clsEvent _event;
+        /*private clsEvent _event;
         public clsEvent Event
         {
             get
@@ -44,6 +44,6 @@ namespace MyAPI.RESTAPI
                 this._event = value;
                 this.OnPropertyChanged("Event");
             }
-        }
+        }*/
     }
 }
