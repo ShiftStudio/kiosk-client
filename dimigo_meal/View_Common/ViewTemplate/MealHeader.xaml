@@ -15,10 +15,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Image Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right" Stretch="None" Source="/dimigo_meal;component/Assets/Resources/dimigologo.png"/>
-        
-        <Label FontWeight="Bold" FontSize="16" Content="날짜"/>
-        <TextBlock Grid.Row="1" FontSize="20">
+        <Label FontWeight="Bold" FontSize="16" Content="날짜" Foreground="White"/>
+        <TextBlock Grid.Row="1" FontSize="20" Foreground="White">
             <TextBlock.Inlines>
                 <Run Text="{common:BindingEx Binding={Binding Path=Now, Mode=OneWay}, ConvertMethod=DateConverter1}"/><LineBreak/>
                 <Run FontWeight="Bold" Text="{common:BindingEx Binding={Binding Path=Now, Mode=OneWay}, ConvertMethod=DateConverter2}"/><LineBreak/>
@@ -26,8 +24,8 @@
             </TextBlock.Inlines>
         </TextBlock>
 
-        <Label Grid.Column="1" FontWeight="Bold" FontSize="16" Content="시간"/>
-        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="20">
+        <Label Grid.Column="1" FontWeight="Bold" FontSize="16" Content="시간" Foreground="White"/>
+        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="20" Foreground="White">
             <TextBlock.Inlines>
                 <Run Text="{common:BindingEx Binding={Binding Path=Now, Mode=OneWay}, ConvertMethod=TimeConverter1}"/><LineBreak/>
                 <Run FontWeight="Bold" Text="{common:BindingEx Binding={Binding Path=Now, Mode=OneWay}, ConvertMethod=TimeConverter2}"/>

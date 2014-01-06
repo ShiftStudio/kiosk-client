@@ -263,6 +263,12 @@
   <ItemGroup>
     <Folder Include="MyAPI\LocalAPI\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Resources\new\background_static.png" />
+    <Resource Include="Assets\Resources\new\cooking.png" />
+    <Resource Include="Assets\Resources\new\error_unregistered.png" />
+    <Resource Include="Assets\Resources\new\student_card.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

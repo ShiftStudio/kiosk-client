@@ -18,7 +18,7 @@ namespace MyAPI.RESTAPI
             else
             {
                 httpHelper.Method = "POST";
-                httpHelper.RequestUri = new Uri("http://suseme.me/meal/new");
+                httpHelper.RequestUri = new Uri("http://closeapi.shiftstud.io/meal/new");
                 httpHelper.RequestHeaders["User-Agent"] = SSecurityManager.SerializeAuth(request as HttpApiRequestBase, httpHelper.RequestUri);
                 httpHelper.RequestBodyJsonObjects["data"] = request;
             }

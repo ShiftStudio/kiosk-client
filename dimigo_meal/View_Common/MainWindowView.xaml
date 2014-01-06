@@ -19,24 +19,24 @@
 
         <Grid DockPanel.Dock="Bottom">
             <Grid.Background>
-                <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/background.png" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
+                <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/background_static.png" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
             </Grid.Background>
 
             <DockPanel x:Name="Wrapper" Margin="50,80,50,0">
                 <StackPanel x:Name="Header" DockPanel.Dock="Top">
-                    <vt:MealHeader Margin="0,0,0,40"/>
+                    <vt:MealHeader Margin="0,0,0,20"/>
                     <StackPanel x:Name="MainHeader">
-                        <vt:MealContainer1 x:Name="SubHeader1" Margin="0,40"/>
+                        <vt:MealContainer1 x:Name="SubHeader1" Margin="0,20"/>
                         <StackPanel>
-                            <Image Source="/dimigo_meal;component/Assets/Resources/dotted-line.png" Margin="-10,0,0,30"/>
+                            <Rectangle Height="2px" Margin="-10,0,0,30" Fill="#FFF3BFC3"/>
                             <vt:MealContainer2 x:Name="SubHeader2" Margin="0,15"/>
                             <vt:MealContainer3 x:Name="SubHeader3" Margin="0,15"/>
-                            <Image Source="/dimigo_meal;component/Assets/Resources/dotted-line.png" Margin="-10,30,0,0"/>
+                            <Rectangle Height="2px" Margin="-10,10,0,30" Fill="#FFF3BFC3"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
                 <Grid DockPanel.Dock="Bottom">
-                    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" VerticalAlignment="Center" Margin="0,-100,0,0"/>
+                    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" VerticalAlignment="Center" Margin="0,0,0,0"/>
                 </Grid>
             </DockPanel>
         </Grid>

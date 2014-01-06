@@ -118,7 +118,7 @@ namespace dimigo_meal.View
             {
                 Run buf = new Run(list[i].Name);
                 if (list[i].IsSpecial)
-                    buf.Foreground = new SolidColorBrush(Color.FromArgb(255, 195, 77, 77));
+                    buf.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
 
                 inlineCollection.Add(buf);
                 if (i < list.Length - 1) inlineCollection.Add(new Run(","));

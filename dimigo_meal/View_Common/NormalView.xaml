@@ -7,7 +7,7 @@
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <Image Stretch="Fill" Source="/dimigo_meal;component/Assets/Resources/character_cook.png" Width="200" Height="351" HorizontalAlignment="Center" Margin="0,50"/>
-            <TextBlock TextAlignment="Center" HorizontalAlignment="Center" FontSize="14">
+            <TextBlock TextAlignment="Center" HorizontalAlignment="Center" FontSize="14" Foreground="White">
                 <Run FontWeight="Bold" Text="지금은 급식 시간이 아닙니다." FontSize="18"/><LineBreak/>
                 <Run FontSize="12"/><LineBreak/>
                 <Run Text="급식실에서 맛있는 식사를 준비하고 있습니다."/><LineBreak/>

@@ -20,7 +20,7 @@ namespace MyAPI.RESTAPI
                 //meal/verify/student에서 식권현장발급까지 동시에 처리하도록 core 구상하자
                 //씨샵 나부랭이보단 파이썬쨔응이 훨씬 편함
                 httpHelper.Method = "POST";
-                httpHelper.RequestUri = new Uri("http://y.suseme.me/meal/verify/student");
+                httpHelper.RequestUri = new Uri("http://closeapi.shiftstud.io/meal/verify/student");
                 httpHelper.RequestHeaders["User-Agent"] = SSecurityManager.SerializeAuth(request as HttpApiRequestBase, httpHelper.RequestUri);
                 httpHelper.RequestBodyJsonObjects["data"] = request;
             }
