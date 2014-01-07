@@ -26,7 +26,15 @@ namespace dimigo_meal.View
 
         private void btn_Cancel_Click(object sender, RoutedEventArgs e)
         {
-            App.GoHomeCommand.Execute(null);
+            //App.GoHomeCommand.Execute(null);
+            App.MainWindow.MainWindowViewState = MainWindowViewState.MAIN_VIEW_TEACHER;
+        }
+
+        private void btn_Okay_Click(object sender, RoutedEventArgs e)
+        {
+            App.mc = (sender as Button).Content.ToString();
+            
+            App.MainWindow.MainWindowViewState = MainWindowViewState.RFIDSCAN_VIEW_TEACHER;
         }
     }
 }

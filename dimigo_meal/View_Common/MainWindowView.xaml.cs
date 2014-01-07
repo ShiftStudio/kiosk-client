@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Media;
 using System.Windows.Threading;
 
 namespace dimigo_meal.View
@@ -29,7 +30,14 @@ namespace dimigo_meal.View
             Screen secondaryScreen = this.GetSecondaryScreen();
             this.Left = secondaryScreen.Bounds.Left;
             this.Top = secondaryScreen.Bounds.Top;
-
+            /*
+            if (App.KioskViewMode == ViewMode.TEACHER_KIOSK)
+                this.Background.ImageSource = (ImageSource)new ImageSourceConverter()
+                .ConvertFromString(@"/dimigo_meal;component/Assets/Resources/new/t/background_static.png");
+            else if (App.KioskViewMode == ViewMode.STUDENT_KIOSK)
+                this.Background.ImageSource = (ImageSource) new ImageSourceConverter()
+                .ConvertFromString(@"/dimigo_meal;component/Assets/Resources/new/s/background_static.png");
+            */
             MainWindowViewModel viewModel = new MainWindowViewModel();
             this.ViewModel = viewModel;
 
@@ -99,9 +107,17 @@ namespace dimigo_meal.View
             MainWindowViewModel viewModel = this.ViewModel;
             viewModel.Now = DateTime.Now;
 
-            this.MainWindowViewState = MainWindowViewState.RFIDSCAN_VIEW_STUDENT;
+            if (App.KioskViewMode == ViewMode.STUDENT_KIOSK)
+                this.MainWindowViewState = MainWindowViewState.RFIDSCAN_VIEW_STUDENT;
+            else if (App.KioskViewMode == ViewMode.TEACHER_KIOSK &&
+                        (this.MainWindowViewState == MainWindowViewState.NOT_MEAL_SUPPLY_TIME_VIEW ||
+                        this.MainWindowViewState == MainWindowViewState.NORMAL_VIEW))
+            {
+                this.MainWindowViewState = MainWindowViewState.MAIN_VIEW_TEACHER;
+            }
 
-            //return;
+            return;
+            
             if (viewModel.MealData.MealStartTime <= viewModel.Now && viewModel.Now <= viewModel.MealData.MealStopTime)
             {
                 if (viewModel.MealData.MealSupplyStartTime <= viewModel.Now && viewModel.Now <= viewModel.MealData.MealSupplyStopTime)

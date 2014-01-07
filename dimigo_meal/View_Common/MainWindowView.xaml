@@ -19,7 +19,7 @@
 
         <Grid DockPanel.Dock="Bottom">
             <Grid.Background>
-                <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/background_static.png" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
+                <ImageBrush x:Name="Background" ImageSource="/dimigo_meal;component/Assets/Resources/new/s/background_static.png" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
             </Grid.Background>
 
             <DockPanel x:Name="Wrapper" Margin="50,80,50,0">

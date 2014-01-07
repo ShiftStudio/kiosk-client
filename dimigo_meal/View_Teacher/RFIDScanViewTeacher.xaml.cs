@@ -20,7 +20,8 @@ namespace dimigo_meal.View
             FoodTicketTeacherApiRequest request = new FoodTicketTeacherApiRequest
             {
                 RFIDCode = RFIDCode,
-                TimeStamp = (DateTime.Now - DateTime.Parse("1970-01-01 09:00:00")).TotalSeconds
+                TimeStamp = (DateTime.Now - DateTime.Parse("1970-01-01 09:00:00")).TotalSeconds,
+                MealCount = App.mc
             };
             FoodTicketTeacherApi api = new FoodTicketTeacherApi();
             api.ResponseSucceeded += base.Api_ResponseSucceeded;
@@ -31,7 +32,8 @@ namespace dimigo_meal.View
         private void btn_Cancel_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             //wow
-            App.GoHomeCommand.Execute(null);
+            //App.GoHomeCommand.Execute(null);
+            App.MainWindow.MainWindowViewState = MainWindowViewState.MAIN_VIEW_TEACHER;
         }
     }
 }

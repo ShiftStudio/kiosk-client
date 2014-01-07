@@ -77,11 +77,11 @@ namespace dimigo_meal.View
         {
             if (Value >= 0)
             {
-                return "/dimigo_meal;component/Assets/Resources/correct.png";
+                return "/dimigo_meal;component/Assets/Resources/new/b_circle.png";
             }
             else
             {
-                return "/dimigo_meal;component/Assets/Resources/Wrong.png";
+                return "/dimigo_meal;component/Assets/Resources/new/b_cross.png";
             }
         }
 

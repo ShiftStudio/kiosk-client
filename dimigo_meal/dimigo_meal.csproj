@@ -264,10 +264,23 @@
     <Folder Include="MyAPI\LocalAPI\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Resources\new\background_static.png" />
+    <Resource Include="Assets\Resources\new\b_circle.png" />
+    <Resource Include="Assets\Resources\new\b_cross.png" />
     <Resource Include="Assets\Resources\new\cooking.png" />
-    <Resource Include="Assets\Resources\new\error_unregistered.png" />
-    <Resource Include="Assets\Resources\new\student_card.png" />
+    <Resource Include="Assets\Resources\new\s\background_static.png" />
+    <Resource Include="Assets\Resources\new\s\error_unregistered.png" />
+    <Resource Include="Assets\Resources\new\s\student_card.png" />
+    <Resource Include="Assets\Resources\new\t\background_static.png" />
+    <Resource Include="Assets\Resources\new\t\btn_cancel.png" />
+    <Resource Include="Assets\Resources\new\t\btn_cancel_pressed.png" />
+    <Resource Include="Assets\Resources\new\t\btn_foodticket.png" />
+    <Resource Include="Assets\Resources\new\t\btn_foodticket_disabled.png" />
+    <Resource Include="Assets\Resources\new\t\btn_foodticket_pressed.png" />
+    <Resource Include="Assets\Resources\new\t\btn_number.png" />
+    <Resource Include="Assets\Resources\new\t\btn_number_pressed.png" />
+    <Resource Include="Assets\Resources\new\t\btn_teacher.png" />
+    <Resource Include="Assets\Resources\new\t\btn_teacher_disabled.png" />
+    <Resource Include="Assets\Resources\new\t\btn_teacher_pressed.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

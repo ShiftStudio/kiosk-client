@@ -5,10 +5,23 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" >
 
+    <Page.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="BorderBrush" Value="Transparent"/>
+        </Style>
+    </Page.Resources>
     <Grid Width="800">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="30,30,35,30">
-            <Button x:Name="btn_CheckTeacherMeal" Content="교직원 식사 확인" FontSize="20" Width="300" Height="200" Margin="60" FontFamily="KoPubDotum Bold" Click="btn_CheckTeacherMeal_Click"/>
-            <Button x:Name="btn_AddNewStudentMeal" Content="학생 식권 현장 발급" FontSize="20" Width="300" Height="200" Margin="60" FontFamily="KoPubDotum Bold" Click="btn_AddNewStudentMeal_Click"/>
+            <Button x:Name="btn_CheckTeacherMeal" FontSize="20" Width="272" Height="288" Margin="60" Click="btn_CheckTeacherMeal_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_teacher.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btn_AddNewStudentMeal" FontSize="20" Width="272" Height="288" Margin="60" Click="btn_AddNewStudentMeal_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_foodticket.png"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

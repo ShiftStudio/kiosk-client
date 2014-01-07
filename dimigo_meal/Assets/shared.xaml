@@ -36,4 +36,50 @@
         <Setter Property="LineHeight" Value="50" />
         <Setter Property="LineStackingStrategy" Value="BlockLineHeight" />
     </Style>
+    
+    <Style x:Key="NumberButton" TargetType="{x:Type Button}">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_number.png"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="FontFamily" Value="KoPubDotum Bold"/>
+        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="Margin" Value="20"/>
+        <Setter Property="Width" Value="90"/>
+        <Style.Triggers>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_number_pressed.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="CancelButton" TargetType="{x:Type Button}">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_cancel.png"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Width" Value="120"/>
+        <Setter Property="Height" Value="59"/>
+        
+        <Style.Triggers>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_cancel_pressed.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
 </ResourceDictionary>

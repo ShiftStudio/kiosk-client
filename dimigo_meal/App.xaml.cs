@@ -14,7 +14,7 @@ namespace dimigo_meal
     /// </summary>
     public partial class App : Application
     {
-        public static readonly ViewMode KioskViewMode = ViewMode.TEACHER_KIOSK;
+        public static readonly ViewMode KioskViewMode = ViewMode.STUDENT_KIOSK;
 
         static App()
         {
@@ -49,5 +49,7 @@ namespace dimigo_meal
         static public Frame MainFrame { get; set; }
 
         static public DelegateCommand<object> GoHomeCommand { get; private set; }
+
+        public static string mc { get; set; }
     }
 }

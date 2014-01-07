@@ -9,10 +9,17 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <Image Source="/dimigo_meal;component/Assets/Resources/black x.png" HorizontalAlignment="Center" Margin="0,50" Stretch="None"/>
             <TextBlock TextAlignment="Center" HorizontalAlignment="Center" FontSize="14">
-                <Run FontWeight="Bold" Text="학생증으로 식권을 확인하지 않는 식사입니다." FontSize="20" Foreground="White"/><LineBreak/>
+                <Run FontWeight="Bold" Text="학생증으로 식권을 확인하지 않는 식사입니다." FontSize="26" Foreground="White"/><LineBreak/>
                 <Run FontSize="8"/><LineBreak/>
-                <Run Text="학생증 접촉 없이 바로 식사하시면 됩니다. 즐거운 식사 되세요!" FontSize="14" Foreground="#FF7E7E7E"/>
-            </TextBlock>
+                <Run Text="학생증 접촉 없이 바로 식사하시면 됩니다. 즐거운 식사 되세요!" FontSize="18" Foreground="#FF7E7E7E"/>
+                <TextBlock.Effect>
+                    <DropShadowEffect
+      ShadowDepth="0"
+      Direction="0"
+      Color="White"
+      Opacity="0.6"
+     BlurRadius="3"/>
+                </TextBlock.Effect></TextBlock>
         </StackPanel>
     </Grid>
 </Page>

@@ -6,13 +6,29 @@
       xmlns:view="clr-namespace:dimigo_meal.View"
       xmlns:common="clr-namespace:dimigo_meal.Common"
       mc:Ignorable="d">
+    <Page.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="BorderBrush" Value="Transparent"/>
+        </Style>
+    </Page.Resources>
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <Image Source="/dimigo_meal;component/Assets/Resources/card.png" HorizontalAlignment="Center" Margin="0,50" Stretch="None"/>
             <TextBlock TextAlignment="Center" HorizontalAlignment="Center" FontSize="14">
-                <LineBreak/><Run FontWeight="Bold" Text="교직원증을 리더기에 접촉해 주세요." FontSize="20"/><LineBreak/>
-            </TextBlock>
-            <Button x:Name="btn_Cancel" Content="취소" FontSize="20" Width="150" Height="90" Margin="20" FontFamily="KoPubDotum Bold" Click="btn_Cancel_Click"/>
+                <LineBreak/><Run FontWeight="Bold" Text="교직원증을 리더기에 접촉해 주세요." FontSize="26" Foreground="White"/><LineBreak/>
+                <TextBlock.Effect>
+                    <DropShadowEffect
+      ShadowDepth="0"
+      Direction="0"
+      Color="White"
+      Opacity="0.6"
+     BlurRadius="6"/>
+                </TextBlock.Effect></TextBlock>
+            <Button x:Name="btn_Cancel" FontSize="20" Width="120" Height="59" Margin="20" FontFamily="KoPubDotum Bold" Click="btn_Cancel_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_cancel.png"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
     </Grid>
 </common:RFIDReaderViewBaseEx>
