@@ -8,12 +8,12 @@
 	Title="ChooseMealCountView" Width="800">
     
     <Grid>
-        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" FontSize="16" Margin="120,20,340,0" Foreground="White">
+        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" FontSize="28" Margin="0,10,0,0" Foreground="White">
             <LineBreak/>    
-            <Run Text="식사할 인원수를 선택해 주세요." FontSize="26" FontFamily="KoPubDotum Light"/>
+            <Run Text="식사할 인원수를 선택해 주세요." FontSize="28" FontFamily="KoPubDotum"/>
             <LineBreak/>
         </TextBlock>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="130" Margin="0,75,0,80" Width="800">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="130" Margin="0,75,0,80">
             <Button Style="{StaticResource ResourceKey=NumberButton}" Content="1" Click="btn_Okay_Click"/>
             <Button Style="{StaticResource ResourceKey=NumberButton}" Content="2" Click="btn_Okay_Click"/>
             <Button Style="{StaticResource ResourceKey=NumberButton}" Content="3" Click="btn_Okay_Click"/>
@@ -21,7 +21,6 @@
             <Button Style="{StaticResource ResourceKey=NumberButton}" Content="5" Click="btn_Okay_Click"/>
             <Button Style="{StaticResource ResourceKey=NumberButton}" Content="6" Click="btn_Okay_Click"/>
         </StackPanel>
-        <Button Style="{StaticResource ResourceKey=CancelButton}" x:Name="btn_Cancel" HorizontalAlignment="Left" Margin="315,225,0,0" VerticalAlignment="Top" Click="btn_Cancel_Click"/>
 
     </Grid>
 </Page>

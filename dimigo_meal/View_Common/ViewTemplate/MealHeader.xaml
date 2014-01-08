@@ -7,28 +7,31 @@
              mc:Ignorable="d" d:DesignWidth="1080">
     <Grid Margin="0,0,0,30">
         <Grid.RowDefinitions>
-            <RowDefinition Height="26"/>
+            <RowDefinition Height="37"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="145"/>
+            <ColumnDefinition Width="238"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Label FontFamily="KoPubDotum" FontSize="16" Content="날짜" Foreground="White"/>
-        <TextBlock FontFamily="KoPubDotum Light" Grid.Row="1" FontSize="20" Foreground="White">
+        <Label FontFamily="KoPubDotum" FontSize="20px" Content="날짜" Foreground="White"/>
+        <TextBlock FontFamily="KoPubDotum Light" Grid.Row="1" FontSize="24" Foreground="White">
             <TextBlock.Inlines>
                 <Run Text="{common:BindingEx Binding={Binding Path=Now, Mode=OneWay}, ConvertMethod=DateConverter1}"/><LineBreak/>
-                <Run FontWeight="Bold" Text="{common:BindingEx Binding={Binding Path=Now, Mode=OneWay}, ConvertMethod=DateConverter2}"/><LineBreak/>
+                <Run FontSize="1"/><LineBreak/>
+                <Run FontFamily="KoPubDotum" FontWeight="Bold" Text="{common:BindingEx Binding={Binding Path=Now, Mode=OneWay}, ConvertMethod=DateConverter2}"/><LineBreak/>
+                <Run FontSize="1"/><LineBreak/>
                 <Run Text="{common:BindingEx Binding={Binding Path=Now, Mode=OneWay}, ConvertMethod=DateConverter3}"/>
             </TextBlock.Inlines>
         </TextBlock>
 
-        <Label FontFamily="KoPubDotum" Grid.Column="1" FontSize="16" Content="시간" Foreground="White"/>
-        <TextBlock FontFamily="KoPubDotum Light" Grid.Column="1" Grid.Row="1" FontSize="20" Foreground="White">
+        <Label FontFamily="KoPubDotum" Grid.Column="1" FontSize="20" Content="시간" Foreground="White"/>
+        <TextBlock FontFamily="KoPubDotum Light" Grid.Column="1" Grid.Row="1" FontSize="24" Foreground="White">
             <TextBlock.Inlines>
                 <Run Text="{common:BindingEx Binding={Binding Path=Now, Mode=OneWay}, ConvertMethod=TimeConverter1}"/><LineBreak/>
-                <Run FontWeight="Bold" Text="{common:BindingEx Binding={Binding Path=Now, Mode=OneWay}, ConvertMethod=TimeConverter2}"/>
+                <Run FontSize="1"/><LineBreak/>
+                <Run FontFamily="KoPubDotum" FontWeight="Bold" Text="{common:BindingEx Binding={Binding Path=Now, Mode=OneWay}, ConvertMethod=TimeConverter2}"/>
             </TextBlock.Inlines>
         </TextBlock>
     </Grid>

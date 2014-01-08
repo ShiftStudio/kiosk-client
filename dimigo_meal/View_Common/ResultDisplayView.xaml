@@ -1,4 +1,4 @@
-﻿<common:RFIDReaderViewBase x:Class="dimigo_meal.View.ResultDisplayView"
+﻿<common:RFIDReaderViewBaseEx x:Class="dimigo_meal.View.ResultDisplayView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,24 +7,22 @@
       xmlns:common="clr-namespace:dimigo_meal.Common"
       mc:Ignorable="d"
       d:DataContext="{d:DesignInstance view:ResultDisplayViewModel, IsDesignTimeCreatable=True}">
-    <Grid Margin="50,0,0,0">
+    <Grid Margin="0,0,0,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="197"/>
+            <ColumnDefinition Width="74"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Image Grid.Column="0" Height="250" Width="250" Source="{common:BindingEx Binding={Binding Path=Event.Status, Mode=OneWay}, ConvertMethod=StatusToImageConverter}" VerticalAlignment="Center"/>
-
-        <Grid Grid.Column="1" Background="Black" Width="1" Height="320"/>
+        <Image Grid.Column="0" Height="197" Width="197" Source="{common:BindingEx Binding={Binding Path=Event.Status, Mode=OneWay}, ConvertMethod=StatusToImageConverter}" VerticalAlignment="Center"/>
 
         <Grid Grid.Column="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="270"/>
+                <ColumnDefinition Width="240"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Column="0" Height="405" Width="270" VerticalAlignment="Stretch" Stretch="Fill" Source="{common:BindingEx Binding={Binding Path=User.ProfileUrl, Mode=OneWay}, ConvertMethod=ProfileImageConverter}"/>
+            <Image Grid.Column="0" Height="380" Width="240" VerticalAlignment="Stretch" Stretch="Fill" Source="{common:BindingEx Binding={Binding Path=User.ProfileUrl, Mode=OneWay}, ConvertMethod=ProfileImageConverter}"/>
 
             <Grid Grid.Column="1" VerticalAlignment="Center" Margin="40,0,0,0">
                 <Grid.RowDefinitions>
@@ -47,4 +45,4 @@
             </Grid>
         </Grid>
     </Grid>
-</common:RFIDReaderViewBase>
+</common:RFIDReaderViewBaseEx>

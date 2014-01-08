@@ -42,6 +42,7 @@ namespace dimigo_meal.View
             this.ViewModel = viewModel;
 
             MainVideoPlayer.MovieDirectory = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "mov");
+            System.Windows.Forms.MessageBox.Show(MainVideoPlayer.MovieList[0]);
             MainVideoPlayer.Play();
 
             _timer = new DispatcherTimer();
@@ -163,25 +164,25 @@ namespace dimigo_meal.View
             switch (ViewState)
             {
                 case MainWindowViewState.NORMAL_VIEW:
-                    this.MainHeader.Visibility = Visibility.Visible;
-                    this.SubHeader3.Visibility = Visibility.Visible;
+                    this.MainHeader.Visibility = Visibility.Collapsed;
                     this.HomePageUri = new Uri("View_Common/NormalView.xaml", UriKind.Relative);
                     this.Navigate(this.HomePageUri);
                     break;
                 case MainWindowViewState.NOT_MEAL_SUPPLY_TIME_VIEW:
                     this.MainHeader.Visibility = Visibility.Visible;
-                    this.SubHeader3.Visibility = Visibility.Visible; // 쓸떄도, 안쓸떄도...
+                    this.SubHeader3.Visibility = Visibility.Visible;
                     this.HomePageUri = new Uri("View_Common/NotMealSupplyTimeView.xaml", UriKind.Relative);
                     this.Navigate(this.HomePageUri);
                     break;
                 case MainWindowViewState.NOT_RFIDSCAN_VIEW:
-                    this.MainHeader.Visibility = Visibility.Collapsed;
+                    this.MainHeader.Visibility = Visibility.Visible;
+                    this.SubHeader3.Visibility = Visibility.Visible;
                     this.HomePageUri = new Uri("View_Student/NotRFIDScanView.xaml", UriKind.Relative);
                     this.Navigate(this.HomePageUri);
                     break;
                 case MainWindowViewState.RFIDSCAN_VIEW_STUDENT:
                     this.MainHeader.Visibility = Visibility.Visible;
-                    this.SubHeader3.Visibility = Visibility.Visible; // 쓸떄도, 안쓸떄도...
+                    this.SubHeader3.Visibility = Visibility.Visible;
                     this.HomePageUri = new Uri("View_Student/RFIDScanViewStudent.xaml", UriKind.Relative);
                     this.Navigate(this.HomePageUri);
                     break;
@@ -351,15 +352,15 @@ namespace dimigo_meal.View
                         App.MainWindow.MainWindowViewState = View.MainWindowViewState.NORMAL_VIEW;
                         break;
                     case 1:
-                        _timer.Start();
+                        _timer.Stop();
                         App.MainWindow.Header.Visibility = Visibility.Visible;
-                        App.MainWindow.VideoContainer.Visibility = Visibility.Collapsed;
+//                        App.MainWindow.VideoContainer.Visibility = Visibility.Collapsed;
                         App.MainWindow.MainWindowViewState = View.MainWindowViewState.NORMAL_VIEW;
                         break;
                     default:
                         _timer.Stop();
-                        App.MainWindow.Header.Visibility = Visibility.Collapsed;
-                        App.MainWindow.VideoContainer.Visibility = Visibility.Collapsed;
+//                        App.MainWindow.Header.Visibility = Visibility.Collapsed;
+//                        App.MainWindow.VideoContainer.Visibility = Visibility.Collapsed;
 
                         App.MainWindow.MainWindowViewState = (MainWindowViewState)(pageIndex);
                         if (pageIndex > 8)
@@ -417,7 +418,7 @@ namespace dimigo_meal.View
                 NarrationPlayer sp = new NarrationPlayer();
                 switch (response.Status)
                 {
-                    case ApiStatus.SUCCESS:
+                    /*case ApiStatus.SUCCESS:
                         sp.Play("띵동");
                         break;
                     case ApiStatus.NETWORK_ERROR:
@@ -425,7 +426,7 @@ namespace dimigo_meal.View
                         break;
                     case ApiStatus.UNKNOWN_ERROR:
                         sp.Play("띵동");
-                        break;
+                        break;*/
                     default:
                         sp.Play("띵동");
                         break;
@@ -435,7 +436,7 @@ namespace dimigo_meal.View
             {
                 ErrorDisplayViewModel vm = new ErrorDisplayViewModel()
                 {
-                    Status = response.Status,
+                    Status = response.Event.Status,
                     Title = response.Title,
                     Message = response.Message
                 };

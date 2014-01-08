@@ -30,7 +30,7 @@ namespace dimigo_meal
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            App.ShowCursor(false);
+//            App.ShowCursor(false);
             App.MainWindow = new MainWindowView();
             App.MainFrame = App.MainWindow.MainFrame;
             App.MainWindow.Show();

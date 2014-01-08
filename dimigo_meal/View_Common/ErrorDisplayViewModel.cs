@@ -15,7 +15,7 @@ namespace dimigo_meal.View
             if (System.ComponentModel.DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
             {
                 FoodTicketCheckApiResponse sample = ErrorDisplayViewModel.getSampleData();
-                this.Status = sample.Status;
+                this.Status = sample.Event.Status;
             }
         }
 
@@ -29,8 +29,8 @@ namespace dimigo_meal.View
 
         #region Properties
 
-        private ApiStatus _status;
-        public ApiStatus Status
+        private clsEventStatus _status;
+        public clsEventStatus Status
         {
             get
             {

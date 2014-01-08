@@ -47,8 +47,26 @@
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="FontFamily" Value="KoPubDotum Bold"/>
         <Setter Property="FontSize" Value="25"/>
-        <Setter Property="Margin" Value="20"/>
+        <Setter Property="Margin" Value="10"/>
         <Setter Property="Width" Value="90"/>
+        <Setter Property="Height" Value="90"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border" 
+                            BorderThickness="1"
+                            BorderBrush="Transparent"
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
         <Style.Triggers>
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background">
@@ -69,12 +87,112 @@
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Width" Value="120"/>
         <Setter Property="Height" Value="59"/>
-        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border" 
+                            BorderThickness="1"
+                            BorderBrush="Transparent"
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
         <Style.Triggers>
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background">
                     <Setter.Value>
                         <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_cancel_pressed.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <Style x:Key="TeacherNewButton" TargetType="{x:Type Button}">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_teacher.png"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border" 
+                            BorderThickness="1"
+                            BorderBrush="Transparent"
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_teacher_pressed.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_teacher_disabled.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <Style x:Key="StudentNewButton" TargetType="{x:Type Button}">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_foodticket.png"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border" 
+                            BorderThickness="1"
+                            BorderBrush="Transparent"
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_foodticket_pressed.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_foodticket_disabled.png"/>
                     </Setter.Value>
                 </Setter>
             </Trigger>

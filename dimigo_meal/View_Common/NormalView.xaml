@@ -5,11 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d">
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Image Stretch="Fill" Source="/dimigo_meal;component/Assets/Resources/new/cooking.png" Width="110" Height="361" HorizontalAlignment="Center" Margin="0,50"/>
-            <TextBlock TextAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="White">
-                <Run FontWeight="Bold" Text="지금은 급식 시간이 아닙니다." FontSize="24"/><LineBreak/>
-                <Run FontSize="14"/><LineBreak/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-100,0,0">
+            <Image Stretch="Fill" Source="/dimigo_meal;component/Assets/Resources/new/cooking.png" Width="110" Height="361" HorizontalAlignment="Center" Margin="0,80"/>
+            <TextBlock FontFamily="KoPubDotum Light" TextAlignment="Center" HorizontalAlignment="Center" FontSize="28" Foreground="White">
+                <Run FontFamily="KoPubDotum" FontWeight="Bold" Text="지금은 급식 시간이 아닙니다." FontSize="37"/><LineBreak/>
+                <Run FontSize="20"/><LineBreak/>
                 <Run Text="급식실에서 맛있는 식사를 준비하고 있습니다."/><LineBreak/>
                 <Run Text="조금만 기다려주세요!"/>
             </TextBlock>

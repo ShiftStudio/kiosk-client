@@ -14,29 +14,29 @@
         Width="1080" Height="1920" WindowStartupLocation="Manual" KeyUp="Window_KeyUp">
     <DockPanel>
         <Grid x:Name="VideoContainer" DockPanel.Dock="Top" Background="Black">
-            <common:MyVideoPlayer x:Name="MainVideoPlayer" Height="608" Margin="0,0,0,5"/>
+            <common:MyVideoPlayer x:Name="MainVideoPlayer" Height="608" Margin="0,0,0,0"/>
         </Grid>
 
-        <Grid DockPanel.Dock="Bottom">
+        <Grid DockPanel.Dock="Bottom" Margin="0">
             <Grid.Background>
                 <ImageBrush x:Name="Background" ImageSource="/dimigo_meal;component/Assets/Resources/new/s/background_static.png" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
             </Grid.Background>
 
-            <DockPanel x:Name="Wrapper" Margin="50,80,50,0">
+            <DockPanel x:Name="Wrapper" Margin="64,48,64,0">
                 <StackPanel x:Name="Header" DockPanel.Dock="Top">
-                    <vt:MealHeader Margin="0,0,0,20"/>
+                    <vt:MealHeader Margin="0,0,0,52"/>
                     <StackPanel x:Name="MainHeader">
-                        <vt:MealContainer1 x:Name="SubHeader1" Margin="0,20"/>
+                        <vt:MealContainer1 x:Name="SubHeader1" Margin="54,55"/>
                         <StackPanel>
-                            <Rectangle Height="2px" Margin="-10,0,0,30" Fill="#FFF3BFC3"/>
-                            <vt:MealContainer2 x:Name="SubHeader2" Margin="0,15"/>
-                            <vt:MealContainer3 x:Name="SubHeader3" Margin="0,15"/>
-                            <Rectangle Height="2px" Margin="-10,10,0,30" Fill="#FFF3BFC3"/>
+                            <Rectangle Height="2px" Margin="0,0,0,40" Fill="#FFF3BFC3"/>
+                            <vt:MealContainer2 x:Name="SubHeader2" Margin="54,15,54,15"/>
+                            <vt:MealContainer3 x:Name="SubHeader3" Margin="54,15,54,15"/>
+                            <Rectangle Height="2px" Margin="0,40,0,0" Fill="#FFF3BFC3"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
                 <Grid DockPanel.Dock="Bottom">
-                    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" VerticalAlignment="Center" Margin="0,0,0,0"/>
+                    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" VerticalAlignment="Center" Margin="50"/>
                 </Grid>
             </DockPanel>
         </Grid>

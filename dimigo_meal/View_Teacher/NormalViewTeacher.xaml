@@ -12,16 +12,8 @@
     </Page.Resources>
     <Grid Width="800">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="30,30,35,30">
-            <Button x:Name="btn_CheckTeacherMeal" FontSize="20" Width="272" Height="288" Margin="60" Click="btn_CheckTeacherMeal_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_teacher.png"/>
-                </Button.Background>
-            </Button>
-            <Button x:Name="btn_AddNewStudentMeal" FontSize="20" Width="272" Height="288" Margin="60" Click="btn_AddNewStudentMeal_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_foodticket.png"/>
-                </Button.Background>
-            </Button>
+            <Button Style="{StaticResource ResourceKey=TeacherNewButton}" x:Name="btn_CheckTeacherMeal" FontSize="20" Width="272" Height="288" Margin="60" Click="btn_CheckTeacherMeal_Click"/>
+            <Button  Style="{StaticResource ResourceKey=StudentNewButton}" x:Name="btn_AddNewStudentMeal" FontSize="20" Width="272" Height="288" Margin="60" Click="btn_AddNewStudentMeal_Click"/>
         </StackPanel>
     </Grid>
 </Page>

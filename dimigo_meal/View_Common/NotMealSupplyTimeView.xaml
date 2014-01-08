@@ -6,7 +6,7 @@
       mc:Ignorable="d">
     
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,100,0,0">
             <Image Stretch="Fill" Source="/dimigo_meal;component/Assets/Resources/new/cooking.png" Width="110" Height="361" HorizontalAlignment="Center" Margin="0,50"/>
             <TextBlock TextAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="White">
                 <Run FontWeight="Bold" Text="배식 시간이 끝났습니다." FontSize="24"/><LineBreak/>

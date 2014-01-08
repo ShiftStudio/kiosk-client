@@ -24,11 +24,7 @@
       Opacity="0.6"
      BlurRadius="6"/>
                 </TextBlock.Effect></TextBlock>
-            <Button x:Name="btn_Cancel" FontSize="20" Width="120" Height="59" Margin="20" FontFamily="KoPubDotum Bold" Click="btn_Cancel_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_cancel.png"/>
-                </Button.Background>
-            </Button>
+            <Button Style="{StaticResource ResourceKey=CancelButton}" x:Name="btn_Cancel" Margin="20" Click="btn_Cancel_Click"/>
         </StackPanel>
     </Grid>
 </common:RFIDReaderViewBaseEx>

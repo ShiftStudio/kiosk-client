@@ -1,5 +1,6 @@
 ﻿using dimigo_meal.Common;
 using dimigo_meal.View;
+using MyAPI.Model;
 using MyAPI.RESTAPI;
 using MyBaseLib.Network;
 using System;
@@ -15,10 +16,13 @@ namespace dimigo_meal.Common
         {
             FoodTicketCheckApiResponse response = this._GetResponseObjectfromEvent(sender);
 
-            if (response.Status >= 0)
+            //event.status returns lower than -200 when exception is throwed
+            //should fix later
+            if ((int)response.Event.Status > -200)
             {
-                App.MainWindow.ViewModel.MealState = response.Meal.MealState;
-                App.MainWindow.ViewModel.MealData = response.Meal.MealData;
+                ///meal/verify/<target> currently do not give MealData
+                //App.MainWindow.ViewModel.MealState = response.Meal.MealState;
+                //App.MainWindow.ViewModel.MealData = response.Meal.MealData;
 
                 ResultDisplayViewModel vm = new ResultDisplayViewModel()
                 {
@@ -37,7 +41,7 @@ namespace dimigo_meal.Common
             {
                 ErrorDisplayViewModel vm = new ErrorDisplayViewModel()
                 {
-                    Status = response.Status,
+                    Status = response.Event.Status,
                     Title = response.Title,
                     Message = response.Message
                 };
@@ -60,7 +64,7 @@ namespace dimigo_meal.Common
             {
                 ErrorDisplayViewModel vm = new ErrorDisplayViewModel()
                 {
-                    Status = ApiStatus.NETWORK_ERROR,
+                    Status = clsEventStatus.NETWORK_ERROR,
                     Title = "네트워크 에러",
                     Message = e.ExceptionObj.Message
                 };
@@ -70,7 +74,7 @@ namespace dimigo_meal.Common
             {
                 ErrorDisplayViewModel vm = new ErrorDisplayViewModel()
                 {
-                    Status = ApiStatus.NETWORK_ERROR,
+                    Status = clsEventStatus.NETWORK_ERROR,
                     Title = "네트워크 에러",
                     Message = e.ExceptionObj.Message
                 };

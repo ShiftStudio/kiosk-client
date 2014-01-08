@@ -9,7 +9,7 @@ namespace dimigo_meal.View
     /// <summary>
     /// ResultDisplayView.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class ResultDisplayView : RFIDReaderViewBase
+    public partial class ResultDisplayView : RFIDReaderViewBaseEx
     {
 
         #region Constructor
@@ -69,80 +69,6 @@ namespace dimigo_meal.View
             api.Send(request);
         }
 
-        private void Api_ResponseSucceeded(object sender, HttpApiResponseBase e)
-        {
-            FoodTicketStudentApi apiObj = sender as FoodTicketStudentApi;
-            FoodTicketStudentApiRequest request = apiObj.HttpApiRequest as FoodTicketStudentApiRequest;
-            FoodTicketCheckApiResponse response = apiObj.HttpApiResponse as FoodTicketCheckApiResponse;
-
-            if (response.Status >= 0)
-            {
-                App.MainWindow.ViewModel.MealState = response.Meal.MealState;
-                App.MainWindow.ViewModel.MealData = response.Meal.MealData;
-
-                ResultDisplayViewModel vm = new ResultDisplayViewModel()
-                {
-                    User = response.User,
-                    Event = response.Event
-                };
-                App.MainFrame.Navigate(new ResultDisplayView(vm));
-
-                NarrationPlayer sp = new NarrationPlayer();
-                if(response.Event.Status >= 0)
-                {
-                    sp.Play("띵동");
-                }
-            }
-            else
-            {
-                ErrorDisplayViewModel vm = new ErrorDisplayViewModel()
-                {
-                    Status = response.Status,
-                    Title = response.Title,
-                    Message = response.Message
-                };
-                App.MainFrame.Navigate(new ErrorDisplayView(vm));
-
-                NarrationPlayer sp = new NarrationPlayer();
-                sp.Play("띵동");
-            }
-        }
-
-        private void Api_ResponseFailed(object sender, HttpHelperEventArgs e)
-        {
-            FoodTicketStudentApi apiObj = sender as FoodTicketStudentApi;
-            FoodTicketStudentApiRequest request = apiObj.HttpApiRequest as FoodTicketStudentApiRequest;
-            FoodTicketCheckApiResponse response = apiObj.HttpApiResponse as FoodTicketCheckApiResponse;
-
-            if (e == null)
-            {
-                // TimeOut;
-            }
-            else if (e.ExceptionObj is System.Net.WebException)
-            {
-                ErrorDisplayViewModel vm = new ErrorDisplayViewModel()
-                {
-                    Status = ApiStatus.NETWORK_ERROR,
-                    Title = "네트워크 에러",
-                    Message = e.ExceptionObj.Message
-                };
-                App.MainFrame.Navigate(new ErrorDisplayView(vm));
-            }
-            else if (e.ExceptionObj is System.Net.Sockets.SocketException)
-            {
-                ErrorDisplayViewModel vm = new ErrorDisplayViewModel()
-                {
-                    Status = ApiStatus.NETWORK_ERROR,
-                    Title = "네트워크 에러",
-                    Message = e.ExceptionObj.Message
-                };
-                App.MainFrame.Navigate(new ErrorDisplayView(vm));
-            }
-            else if (e.ExceptionObj is TimeoutException)
-            {
-                // TimeOut;
-            }
-        }
     
     }
 }
