@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Controls;
-using System.Windows.Forms;
 
 namespace dimigo_meal.Common
 {
@@ -13,6 +12,18 @@ namespace dimigo_meal.Common
             base.MediaEnded += myVideoPlayer_MediaEnded;
         }
 
+        private string[] _playable_list = { "mp4", "mov", "avi", "jpg", "png", "gif", "bmp", "mkv" };
+
+        private bool IsPlayable(string path)
+        {
+            foreach (string pl in _playable_list)
+            {
+                if (path.EndsWith(pl))
+                    return true;
+            }
+            return false;
+        }
+
         public new void Play()
         {
             if (this.MovieList != null && this.MovieList.Length > 0)
@@ -21,7 +32,12 @@ namespace dimigo_meal.Common
                 {
                     _movieIndex = 0;
                 }
-                base.Source = new Uri(MovieList[_movieIndex++]);
+                string path = MovieList[_movieIndex++];
+
+                if (IsPlayable(path))
+                    base.Source = new Uri(path);
+                else
+                    this.Play();
             }
         }
 

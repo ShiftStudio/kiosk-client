@@ -8,8 +8,6 @@ using System;
 using System.ComponentModel;
 using System.Threading;
 using System.Windows;
-using System.Windows.Forms;
-using System.Windows.Media;
 using System.Windows.Threading;
 
 namespace dimigo_meal.View
@@ -27,7 +25,7 @@ namespace dimigo_meal.View
             InitializeComponent();
 
             //send it to second screen
-            Screen secondaryScreen = this.GetSecondaryScreen();
+            System.Windows.Forms.Screen secondaryScreen = this.GetSecondaryScreen();
             this.Left = secondaryScreen.Bounds.Left;
             this.Top = secondaryScreen.Bounds.Top;
             /*
@@ -42,7 +40,6 @@ namespace dimigo_meal.View
             this.ViewModel = viewModel;
 
             MainVideoPlayer.MovieDirectory = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "mov");
-            System.Windows.Forms.MessageBox.Show(MainVideoPlayer.MovieList[0]);
             MainVideoPlayer.Play();
 
             _timer = new DispatcherTimer();
@@ -55,10 +52,11 @@ namespace dimigo_meal.View
             _worker.RunWorkerAsync();
 
             #if DEBUG
-            FoodTicketCheckApiResponse sample = MainWindowViewModel.getSampleData();
+            NewDataCheckApiResponse sample = MainWindowViewModel.getSampleData();
             this.ViewModel.MealData = sample.Meal.MealData;
             this.ViewModel.MealState = sample.Meal.MealState;
             this.KeyUp += Grid_KeyUp_1;
+            //throw new UnauthorizedAccessException();
             #endif
         }
         
@@ -210,20 +208,24 @@ namespace dimigo_meal.View
         private void NewDataCheckApi_ResponseSucceeded(object sender, HttpApiResponseBase e)
         {
             NewDataCheckApi apiObj = sender as NewDataCheckApi;
-            NewDataCheckApiRequest request = apiObj.HttpApiRequest as NewDataCheckApiRequest;
             NewDataCheckApiResponse response = apiObj.HttpApiResponse as NewDataCheckApiResponse;
 
             if (response.Status >= 0)
             {
-                App.MainWindow.ViewModel.MealState = response.Meal.MealState;
-                App.MainWindow.ViewModel.MealData = response.Meal.MealData;
+                this.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    if (response.Meal != null)
+                    {
+                        App.MainWindow.ViewModel.MealState = response.Meal.MealState;
+                        App.MainWindow.ViewModel.MealData = response.Meal.MealData;
+                    }
+                }));
             }
         }
 
         private void NewDataCheckApi_ResponseFailed(object sender, HttpHelperEventArgs e)
         {
             NewDataCheckApi apiObj = sender as NewDataCheckApi;
-            NewDataCheckApiRequest request = apiObj.HttpApiRequest as NewDataCheckApiRequest;
             NewDataCheckApiResponse response = apiObj.HttpApiResponse as NewDataCheckApiResponse;
 
             if (e == null)
@@ -252,14 +254,14 @@ namespace dimigo_meal.View
 
         #region Method
 
-        private Screen GetSecondaryScreen()
+        private System.Windows.Forms.Screen GetSecondaryScreen()
         {
-            foreach (Screen screen in Screen.AllScreens)
+            foreach (System.Windows.Forms.Screen screen in System.Windows.Forms.Screen.AllScreens)
             {
-                if (screen != Screen.PrimaryScreen)
+                if (screen != System.Windows.Forms.Screen.PrimaryScreen)
                     return screen;
             }
-            return Screen.PrimaryScreen;
+            return System.Windows.Forms.Screen.PrimaryScreen;
         }
 
         public bool Navigate(object content)

@@ -4,7 +4,7 @@ namespace MyAPI.Model
 {
     public abstract class HttpApiResponseBaseEx : HttpApiResponseBase
     {
-        private clsMeal _meal;
+        /*private clsMeal _meal;
         public clsMeal Meal
         {
             get
@@ -16,7 +16,7 @@ namespace MyAPI.Model
                 _meal = value;
                 OnPropertyChanged("Meal");
             }
-        }
+        }*/
 
         private string _title;
         public string Title

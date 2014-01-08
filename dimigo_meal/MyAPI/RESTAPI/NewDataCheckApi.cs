@@ -27,7 +27,10 @@ namespace MyAPI.RESTAPI
         protected override HttpApiResponseBase _GenerateResponse(HttpHelperEventArgs httpHelperEventArgs)
         {
             string strResponse = httpHelperEventArgs.Content;
-            HttpApiResponseBase response = JsonConvert.DeserializeObject<NewDataCheckApiResponse>(strResponse);
+            HttpApiResponseBase response = JsonConvert.DeserializeObject<NewDataCheckApiResponse>(strResponse, new JsonSerializerSettings()
+            {
+                NullValueHandling = NullValueHandling.Ignore
+            });
             response.ResponseStr = strResponse;
             return response;
         }

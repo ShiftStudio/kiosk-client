@@ -27,9 +27,18 @@ namespace dimigo_meal
             });
         }
 
+        void OnDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            string errorMessage = string.Format("An unhandled exception occurred: {0}", e.Exception.ToString());
+            MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            e.Handled = true;
+        }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+            //global exHandling
+            Application.Current.DispatcherUnhandledException += OnDispatcherUnhandledException;
 //            App.ShowCursor(false);
             App.MainWindow = new MainWindowView();
             App.MainFrame = App.MainWindow.MainFrame;

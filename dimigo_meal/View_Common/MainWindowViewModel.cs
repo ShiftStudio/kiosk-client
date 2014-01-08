@@ -19,15 +19,15 @@ namespace dimigo_meal.View
         {
             if (System.ComponentModel.DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
             {
-                FoodTicketCheckApiResponse sample = MainWindowViewModel.getSampleData();
+                NewDataCheckApiResponse sample = MainWindowViewModel.getSampleData();
                 this.MealData = sample.Meal.MealData;
                 this.MealState = sample.Meal.MealState;
             }
         }
 
-        public static FoodTicketCheckApiResponse getSampleData()
+        public static NewDataCheckApiResponse getSampleData()
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FoodTicketCheckApiResponse>(
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NewDataCheckApiResponse>(
                 "{\"status\" : 0, \"user\" :{\"name\" : \"김동현\", \"department\" : \"개발3팀장\", \"grade\" : 2, \"class\" : 4, \"number\" : 4, \"profileUrl\" : \"http://sstatic.naver.net/search/img3/h1_naver2.png\"}, \"event\" :{\"regularTime\" : \"17:00:00\", \"checkoutTime\" : \"17:10:00\", \"diffTime\" : \"00:10:00\"}, \"meal\" :{\"mealData\" :{\"isUsableRFIDCard\" : false, \"mealTime\" : \"저녁\", \"mealStartTime\" : \"18:20:00\", \"mealStopTime\" : \"19:30:00\", \"mealSupplyStartTime\" : \"18:20:00\", \"mealSupplyStopTime\" : \"19:15:00\", \"mealInstanceStartTime\" : \"19:10:00\", \"mealInstanceCouponNum\" : 30, \"mealName\" : \"저녁\", \"foodList\" :[{\"id\" : 1, \"name\" : \"코다리 튀김\", \"isSpecial\" : true,  \"isAllergy\" : false},{\"id\" : 2, \"name\" : \"짜장 라이스\", \"isSpecial\" : false, \"isAllergy\" : false},{\"id\" : 3, \"name\" : \"카레 라이스\", \"isSpecial\" : false, \"isAllergy\" : false},{\"id\" : 4, \"name\" : \"총각 김치\", \"isSpecial\" : true,  \"isAllergy\" : true},{\"id\" : 5, \"name\" : \"야쿠르트\", \"isSpecial\" : false, \"isAllergy\" : true}]}, \"mealState\" :{\"studentNum\" : 300, \"instanceStudentNum\" : 6, \"completedMealStudentNum\" : 158, \"completedInstanceMealStudentNum\": 2}}}");
         }
 
