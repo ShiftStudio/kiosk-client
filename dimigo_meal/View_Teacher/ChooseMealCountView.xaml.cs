@@ -32,6 +32,7 @@ namespace dimigo_meal.View
 
         private void btn_Okay_Click(object sender, RoutedEventArgs e)
         {
+            //꼭 이렇게 써야돼?
             App.mc = (sender as Button).Content.ToString();
             
             App.MainWindow.MainWindowViewState = MainWindowViewState.RFIDSCAN_VIEW_TEACHER;
