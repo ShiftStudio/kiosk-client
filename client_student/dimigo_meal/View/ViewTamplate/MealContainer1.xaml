@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="dimigo_meal.ViewTamplate.MealContainer1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:common="clr-namespace:dimigo_meal.Common"
+             mc:Ignorable="d"
+             d:DesignWidth="1080">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="54"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label FontWeight="Bold" FontSize="36" Content="{Binding Path=MealData.MealName}"/>
+        <common:RichTextBlock Grid.Row="1" FontSize="22" RichText="{common:BindingEx Binding={Binding Path=MealData.FoodList, Mode=OneWay}, ConvertMethod=FoodListConverter}"/>
+    </Grid>
+</UserControl>
