@@ -56,7 +56,6 @@ namespace dimigo_meal.View
             this.ViewModel.MealData = sample.Meal.MealData;
             this.ViewModel.MealState = sample.Meal.MealState;
             this.KeyUp += Grid_KeyUp_1;
-            //throw new UnauthorizedAccessException();
             #endif
         }
         
@@ -106,6 +105,7 @@ namespace dimigo_meal.View
             MainWindowViewModel viewModel = this.ViewModel;
             viewModel.Now = DateTime.Now;
 
+#if DEBUG
             if (App.KioskViewMode == ViewMode.STUDENT_KIOSK)
                 this.MainWindowViewState = MainWindowViewState.RFIDSCAN_VIEW_STUDENT;
             else if (App.KioskViewMode == ViewMode.TEACHER_KIOSK &&
@@ -116,7 +116,7 @@ namespace dimigo_meal.View
             }
 
             return;
-            
+#endif
             if (viewModel.MealData.MealStartTime <= viewModel.Now && viewModel.Now <= viewModel.MealData.MealStopTime)
             {
                 if (viewModel.MealData.MealSupplyStartTime <= viewModel.Now && viewModel.Now <= viewModel.MealData.MealSupplyStopTime)
@@ -212,6 +212,7 @@ namespace dimigo_meal.View
 
             if (response.Status >= 0)
             {
+                //Used delegate to prevent thread conflict
                 this.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     if (response.Meal != null)
@@ -244,10 +245,6 @@ namespace dimigo_meal.View
             {
                 // TimeOut;
             }
-        }
-
-        private void Window_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
-        {
         }
 
         #endregion Event

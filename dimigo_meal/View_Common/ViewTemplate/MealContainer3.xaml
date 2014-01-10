@@ -8,7 +8,7 @@
              d:DesignWidth="1080">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="450"/>
+            <ColumnDefinition Width="421"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -16,14 +16,14 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label FontWeight="Bold" FontSize="25" Content="잔여 현장 발급 학생식권 수"/>
-        <TextBlock Grid.Row="1" FontSize="20">
+        <Label FontFamily="KoPubDotum Light" FontSize="24" Content="잔여 현장 발급 학생식권 수" Foreground="White"/>
+        <TextBlock FontFamily="KoPubDotum Light" Grid.Row="1" FontSize="18" Foreground="White">
             <Run Text="{Binding Path=MealState.InstanceStudentNum, Mode=OneWay}"/><Run Text="장"/>
         </TextBlock>
 
-        <Label Grid.Column="1" FontWeight="Bold" FontSize="25" Content="현장발급 학생식권 사용 가능 시간"/>
-        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="20">
-            <Run Foreground="#FFFF00C0" FontWeight="Bold" Text="{common:BindingEx Binding={Binding Path=MealData.MealInstanceStartTime, Mode=OneWay}, ConvertMethod=TimeConverter3}"/><Run Text="부터 사용 가능"/>
+        <Label FontFamily="KoPubDotum" Grid.Column="1" FontSize="24" Content="현장발급 학생식권 사용 가능 시간" Foreground="White" BorderBrush="Black"/>
+        <TextBlock FontFamily="KoPubDotum Light" Grid.Column="1" Grid.Row="1" FontSize="18" Foreground="White">
+            <Run FontWeight="Bold" Text="{common:BindingEx Binding={Binding Path=MealData.MealInstanceStartTime, Mode=OneWay}, ConvertMethod=TimeConverter3}"/><Run Text="부터 사용 가능"/>
         </TextBlock>
     </Grid>
 </UserControl>

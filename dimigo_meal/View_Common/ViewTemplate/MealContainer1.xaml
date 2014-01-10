@@ -8,10 +8,10 @@
              d:DesignWidth="1080">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="54"/>
+            <RowDefinition Height="92"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label FontWeight="Bold" FontSize="36" Content="{Binding Path=MealData.MealName}"/>
-        <common:RichTextBlock Grid.Row="1" FontSize="22" RichText="{common:BindingEx Binding={Binding Path=MealData.FoodList, Mode=OneWay}, ConvertMethod=FoodListConverter}"/>
+        <Label FontFamily="KoPubDotum" FontWeight="Bold" FontSize="72" Content="{Binding Path=MealData.MealName}" Foreground="White"/>
+        <common:RichTextBlock FontFamily="KoPubDotum" Grid.Row="1" FontSize="30" RichText="{common:BindingEx Binding={Binding Path=MealData.FoodList, Mode=OneWay}, ConvertMethod=FoodListConverter}" Foreground="White"/>
     </Grid>
 </UserControl>
