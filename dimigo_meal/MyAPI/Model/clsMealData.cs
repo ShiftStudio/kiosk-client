@@ -19,6 +19,20 @@ namespace MyAPI.Model
             }
         }
 
+        private bool _isServing = false;
+        public bool IsServing
+        {
+            get
+            {
+                return _isServing;
+            }
+            set
+            {
+                _isServing = value;
+                OnPropertyChanged("IsServing");
+            }
+        }
+
         private string _mealTime = null;
         public string MealTime
         {

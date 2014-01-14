@@ -1,11 +1,14 @@
-﻿namespace MyAPI.RESTAPI
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace MyAPI.RESTAPI
 {
     public enum ApiStatus
     {
         SUCCESS = 0,
-        NEED_AUTH = -998,
-        NEED_UPDATE = -999,
-        NETWORK_ERROR = -501,
-        UNKNOWN_ERROR = -500
+        NETWORK_ERROR = -500,
+        UNKNOWN_ERROR = -999
     }
 }

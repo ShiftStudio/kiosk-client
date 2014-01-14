@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <TargetFrameworkProfile />
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -62,7 +62,9 @@
     </ApplicationDefinition>
     <Compile Include="Common\MyVideoPlayer.cs" />
     <Compile Include="Common\PopupPage.cs" />
+    <Compile Include="EmbeddedAssembly.cs" />
     <Compile Include="MyAPI\Model\clsEventStatus.cs" />
+    <Compile Include="MyAPI\RESTAPI\ApiStatus.cs" />
     <Compile Include="MyAPI\RESTAPI\FoodTicketTeacherApi.cs" />
     <Compile Include="MyAPI\RESTAPI\NewDataCheckApi.cs" />
     <Compile Include="MyAPI\RESTAPI\NewDataCheckApiRequest.cs" />
@@ -86,7 +88,6 @@
     <Compile Include="MyAPI\RESTAPI\FoodTicketStudentApi.cs" />
     <Compile Include="MyAPI\RESTAPI\FoodTicketStudentApiRequest.cs" />
     <Compile Include="MyAPI\RESTAPI\FoodTicketCheckApiResponse.cs" />
-    <Compile Include="MyAPI\RESTAPI\ApiStatus.cs" />
     <Compile Include="MyAPI\Model\clsError.cs" />
     <Compile Include="MyAPI\Model\clsEvent.cs" />
     <Compile Include="MyAPI\Model\clsFood.cs" />

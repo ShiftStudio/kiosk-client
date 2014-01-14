@@ -16,9 +16,14 @@ namespace dimigo_meal.Common
         {
             FoodTicketCheckApiResponse response = this._GetResponseObjectfromEvent(sender);
 
+            if (App.KioskViewMode == ViewMode.TEACHER_KIOSK)
+            {
+                App.MainWindow.MainWindowViewState = MainWindowViewState.MAIN_VIEW_TEACHER;
+            }
+
             //event.status returns lower than -200 when exception is throwed
             //should fix later
-            if ((int)response.Event.Status > -200)
+            if ((int)response.Status > -200)
             {
                 ///meal/verify/<target> currently do not give MealData
                 //App.MainWindow.ViewModel.MealState = response.Meal.MealState;
@@ -32,7 +37,7 @@ namespace dimigo_meal.Common
                 App.MainFrame.Navigate(new ResultDisplayView(vm));
 
                 NarrationPlayer sp = new NarrationPlayer();
-                if (response.Event.Status >= 0)
+                if (response.Status >= 0)
                 {
                     sp.Play("띵동");
                 }
@@ -90,18 +95,8 @@ namespace dimigo_meal.Common
         {
             HttpApiBase apiObj = sender as HttpApiBase;
             
-            switch (App.KioskViewMode)
-            {
-               case View.ViewMode.STUDENT_KIOSK:
-                    apiObj = apiObj as FoodTicketStudentApi;
-                    break;
-                case View.ViewMode.TEACHER_KIOSK:
-                    apiObj = apiObj as FoodTicketTeacherApi;
-                    break;
-            }
-            
-                FoodTicketCheckApiResponse response = apiObj.HttpApiResponse as FoodTicketCheckApiResponse;
-                return response;            
+            FoodTicketCheckApiResponse response = apiObj.HttpApiResponse as FoodTicketCheckApiResponse;
+            return response;            
             
         }
     }

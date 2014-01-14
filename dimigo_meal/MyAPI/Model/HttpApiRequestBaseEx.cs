@@ -1,22 +1,23 @@
-﻿using MyBaseLib.Network;
+﻿using MyAPI.RESTAPI;
+using MyBaseLib.Network;
 
 namespace MyAPI.Model
 {
     public abstract class HttpApiResponseBaseEx : HttpApiResponseBase
     {
-        /*private clsMeal _meal;
-        public clsMeal Meal
+        private ApiStatus _status;
+        public ApiStatus Status
         {
             get
             {
-                return _meal;
+                return this._status;
             }
             set
             {
-                _meal = value;
-                OnPropertyChanged("Meal");
+                this._status = value;
+                this.OnPropertyChanged("Status");
             }
-        }*/
+        }
 
         private string _title;
         public string Title

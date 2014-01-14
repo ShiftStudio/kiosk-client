@@ -111,6 +111,12 @@ namespace dimigo_meal.View
             return _time.ToString("dddd");
         }
 
+        //fuck you binding
+        public Brush LineColorConverter()
+        {
+            return null;   
+        }
+
         public List<Inline> FoodListConverter(clsFood[] list)
         {
             List<Inline> inlineCollection = new List<Inline>();
@@ -121,7 +127,7 @@ namespace dimigo_meal.View
                     buf.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
 
                 inlineCollection.Add(buf);
-                if (i < list.Length - 1) inlineCollection.Add(new Run(","));
+                if (i < list.Length - 1) inlineCollection.Add(new Run(", "));
             }
             return inlineCollection;
         }

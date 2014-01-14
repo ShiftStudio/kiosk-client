@@ -97,6 +97,18 @@ namespace dimigo_meal.View
             }
         }
 
+        public string StatusToUserConverter(clsPeople User)
+        {
+            if (User.Department == null || User.Position == null)
+            {
+                return User.Grade + "학년 " + User.Class + "반 " + User.Number + "번";
+            }
+            else
+            {
+                return User.Department + " " + User.Position;
+            }
+        }
+
         #endregion Converter
     }
 }

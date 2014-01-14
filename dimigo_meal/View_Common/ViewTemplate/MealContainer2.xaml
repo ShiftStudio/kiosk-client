@@ -16,15 +16,15 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label FontFamily="KoPubDotum" FontSize="24" Content="학생 배식 가능 시간" Foreground="White"/>
-        <TextBlock FontFamily="KoPubDotum Light" Grid.Row="1" FontSize="18" Foreground="White">
+        <Label FontFamily="KoPubDotum Bold" FontWeight="Bold" FontSize="24" Content="학생 배식 가능 시간" Foreground="White"/>
+        <TextBlock FontFamily="KoPubDotum Light" Grid.Row="1" FontSize="24" Foreground="White">
             <Run Text="{common:BindingEx Binding={Binding Path=MealData.MealSupplyStartTime, Mode=OneWay}, ConvertMethod=TimeConverter3}"/>
             <Run Text="~"/>
             <Run Text="{common:BindingEx Binding={Binding Path=MealData.MealSupplyStopTime, Mode=OneWay}, ConvertMethod=TimeConverter3}"/>
         </TextBlock>
 
-        <Label FontFamily="KoPubDotum" Grid.Column="1" FontSize="24" Content="식사 학생 수" Foreground="White"/>
-        <TextBlock FontFamily="KoPubDotum Light" Grid.Column="1" Grid.Row="1" FontSize="18" Foreground="White">
+        <Label FontFamily="KoPubDotum Bold" FontWeight="Bold" Grid.Column="1" FontSize="24" Content="식사 학생 수" Foreground="White"/>
+        <TextBlock FontFamily="KoPubDotum Light" Grid.Column="1" Grid.Row="1" FontSize="24" Foreground="White">
             <Run Text="총 "/><Run Text="{Binding Path=MealState.StudentNum, Mode=OneWay}"/><Run Text="명 중 "/><Run FontWeight="Bold" Text="{Binding Path=MealState.CompletedMealStudentNum, Mode=OneWay}"/><Run Text="명 배식 완료"/>
         </TextBlock>
     </Grid>

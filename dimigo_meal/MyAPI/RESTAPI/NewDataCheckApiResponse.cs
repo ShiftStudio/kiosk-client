@@ -4,19 +4,7 @@ namespace MyAPI.RESTAPI
 {
     public class NewDataCheckApiResponse : HttpApiResponseBaseEx
     {
-        private ApiStatus _status;
-        public ApiStatus Status
-        {
-            get
-            {
-                return this._status;
-            }
-            set
-            {
-                this._status = value;
-                this.OnPropertyChanged("Status");
-            }
-        }
+
 
         private clsMeal _meal;
         public clsMeal Meal

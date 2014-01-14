@@ -11,7 +11,7 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         Left="0" Top="0"
-        Width="1080" Height="1920" WindowStartupLocation="Manual" KeyUp="Window_KeyUp">
+        Width="1080" Height="1920" WindowStartupLocation="Manual" Closing="Window_Closing">
     <DockPanel>
         <Grid x:Name="VideoContainer" DockPanel.Dock="Top" Background="Black">
             <common:MyVideoPlayer x:Name="MainVideoPlayer" Height="608" Margin="0,0,0,0"/>
@@ -28,15 +28,15 @@
                     <StackPanel x:Name="MainHeader">
                         <vt:MealContainer1 x:Name="SubHeader1" Margin="54,55"/>
                         <StackPanel>
-                            <Rectangle Height="2px" Margin="0,0,0,40" Fill="#FFF3BFC3"/>
+                            <Rectangle x:Name="l1" Height="2px" Margin="0,0,0,40" Fill="{common:BindingEx Binding={Binding Path=App.KioskViewMode, Mode=OneWay}, ConvertMethod=LineColorConverter}"/>
                             <vt:MealContainer2 x:Name="SubHeader2" Margin="54,15,54,15"/>
                             <vt:MealContainer3 x:Name="SubHeader3" Margin="54,15,54,15"/>
-                            <Rectangle Height="2px" Margin="0,40,0,0" Fill="#FFF3BFC3"/>
+                            <Rectangle x:Name="l2" Height="2px" Margin="0,40,0,0" Fill="{common:BindingEx ConvertMethod=LineColorConverter}"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
                 <Grid DockPanel.Dock="Bottom">
-                    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" VerticalAlignment="Center" Margin="50"/>
+                    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50"/>
                 </Grid>
             </DockPanel>
         </Grid>

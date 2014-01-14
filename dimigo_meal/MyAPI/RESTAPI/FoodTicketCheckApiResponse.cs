@@ -4,19 +4,6 @@ namespace MyAPI.RESTAPI
 {
     public class FoodTicketCheckApiResponse : HttpApiResponseBaseEx
     {
-        private ApiStatus _status;
-        public ApiStatus Status
-        {
-            get
-            {
-                return this._status;
-            }
-            set
-            {
-                this._status = value;
-                this.OnPropertyChanged("Status");
-            }
-        }
 
         private clsPeople _user;
         public clsPeople User

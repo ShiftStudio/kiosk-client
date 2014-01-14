@@ -46,6 +46,20 @@ namespace MyAPI.Model
             }
         }
 
+        private string _position;
+        public string Position
+        {
+            get
+            {
+                return _position;
+            }
+            set
+            {
+                _position = value;
+                OnPropertyChanged("Position");
+            }
+        }
+
         private int _grade;
         public int Grade
         {

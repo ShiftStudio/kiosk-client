@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using YangpaH;
 
 namespace dimigo_meal
 {
@@ -25,20 +26,21 @@ namespace dimigo_meal
                     App.MainWindow.Navigate(App.MainWindow.HomePageUri);
                 }
             });
+
         }
 
-        void OnDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        void OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            string errorMessage = string.Format("An unhandled exception occurred: {0}", e.Exception.ToString());
+            string errorMessage = string.Format("An unhandled exception occurred: {0}", e.ExceptionObject.ToString());
             MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            e.Handled = true;
+            //e.Handled = true;
         }
 
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
             //global exHandling
-            Application.Current.DispatcherUnhandledException += OnDispatcherUnhandledException;
+            AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
 //            App.ShowCursor(false);
             App.MainWindow = new MainWindowView();
             App.MainFrame = App.MainWindow.MainFrame;

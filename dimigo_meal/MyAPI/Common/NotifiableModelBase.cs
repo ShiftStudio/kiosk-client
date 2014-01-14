@@ -12,7 +12,7 @@ namespace MyAPI.Common
             {
                 var e = new PropertyChangedEventArgs(propertyName);
                 handler(this, e);  // 내부적으로 프로퍼티 변경 체크후 이벤트 호출
-                handler.Invoke(this, e); // 무조건 이벤트 호출
+                
             }
         }
     }
