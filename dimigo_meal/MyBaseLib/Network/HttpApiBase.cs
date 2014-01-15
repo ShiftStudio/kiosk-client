@@ -24,7 +24,7 @@ namespace MyBaseLib.Network
             this._httpHelper.ResponseSucceeded += this._httpHelper_ResponseSucceeded; // new EventHandler<HttpHelperEventArgs>(this._httpHelper_ResponseSucceeded);
             this._httpHelper.RequestProgressChanged += this._httpHelper_RequestProgressChanged;//new EventHandler<HttpHelperUploadProgressEventArgs>(this._httpHelper_RequestProgressChanged);
 
-            this.RequestTimeOut = TimeSpan.FromSeconds(60.0);
+            this.RequestTimeOut = TimeSpan.FromSeconds(5.0);
             this.AsyncContext = new Dictionary<string, object>();
         }
 

@@ -41,7 +41,9 @@ namespace dimigo_meal
             base.OnStartup(e);
             //global exHandling
             AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
-//            App.ShowCursor(false);
+#if !DEBUG
+            App.ShowCursor(false);
+#endif
             App.MainWindow = new MainWindowView();
             App.MainFrame = App.MainWindow.MainFrame;
             App.MainWindow.Show();

@@ -112,6 +112,9 @@
     <Compile Include="View_Common\NormalView.xaml.cs">
       <DependentUpon>NormalView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View_Common\MainWindowViewShort.xaml.cs">
+      <DependentUpon>MainWindowViewShort.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View_Student\RFIDScanViewStudent.xaml.cs">
       <DependentUpon>RFIDScanViewStudent.xaml</DependentUpon>
     </Compile>
@@ -169,6 +172,10 @@
     <Page Include="View_Common\NormalView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View_Common\MainWindowViewShort.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View_Student\RFIDScanViewStudent.xaml">
       <SubType>Designer</SubType>
@@ -282,6 +289,9 @@
     <Resource Include="Assets\Resources\new\t\btn_teacher.png" />
     <Resource Include="Assets\Resources\new\t\btn_teacher_disabled.png" />
     <Resource Include="Assets\Resources\new\t\btn_teacher_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Resources\new\card.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

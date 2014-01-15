@@ -53,7 +53,7 @@ namespace dimigo_meal.Common
                 App.MainFrame.Navigate(new ErrorDisplayView(vm));
 
                 NarrationPlayer sp = new NarrationPlayer();
-                sp.Play("띵동");
+               // sp.Play("띵동");
             }
         }
 

@@ -89,7 +89,7 @@ namespace dimigo_meal.View
         {
             if (Value >= 0)
             {
-                return new SolidColorBrush(Color.FromArgb(255, 0, 174, 240));
+                return new SolidColorBrush(Color.FromArgb(255, 13, 134, 173));
             }
             else
             {

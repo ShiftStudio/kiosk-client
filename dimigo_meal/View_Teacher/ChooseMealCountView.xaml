@@ -10,7 +10,7 @@
     <Grid>
         <TextBlock TextAlignment="Center" HorizontalAlignment="Center" FontSize="28" Margin="0,10,0,0" Foreground="White">
             <LineBreak/>    
-            <Run Text="식사할 인원수를 선택해 주세요." FontSize="28" FontFamily="KoPubDotum"/>
+            <Run Text="식사할 인원수를 선택해 주세요." FontSize="30" FontFamily="KoPubDotum Bold" FontWeight="Bold"/>
             <LineBreak/>
         </TextBlock>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="130" Margin="0,75,0,80">

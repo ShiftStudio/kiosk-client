@@ -7,11 +7,11 @@
       xmlns:common="clr-namespace:dimigo_meal.Common"
       mc:Ignorable="d"
       d:DataContext="{d:DesignInstance view:ResultDisplayViewModel, IsDesignTimeCreatable=True}">
-    <Grid Margin="0,0,0,0">
+    <Grid Margin="36,0,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="197"/>
             <ColumnDefinition Width="74"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="645"/>
         </Grid.ColumnDefinitions>
 
         <Image Grid.Column="0" Height="197" Width="197" Source="{common:BindingEx Binding={Binding Path=Event.Status, Mode=OneWay}, ConvertMethod=StatusToImageConverter}" VerticalAlignment="Center"/>

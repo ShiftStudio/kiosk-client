@@ -15,7 +15,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Label FontFamily="KoPubDotum" FontSize="20px" Content="날짜" Foreground="White"/>
+        <Label FontFamily="KoPubDotum Bold" FontWeight="Bold" FontSize="20px" Content="날짜" Foreground="White"/>
         <TextBlock FontFamily="KoPubDotum Light" Grid.Row="1" FontSize="24" Foreground="White">
             <TextBlock.Inlines>
                 <Run Text="{common:BindingEx Binding={Binding Path=Now, Mode=OneWay}, ConvertMethod=DateConverter1}"/><LineBreak/>
@@ -26,7 +26,7 @@
             </TextBlock.Inlines>
         </TextBlock>
 
-        <Label FontFamily="KoPubDotum" Grid.Column="1" FontSize="20" Content="시간" Foreground="White"/>
+        <Label FontFamily="KoPubDotum Bold" FontWeight="Bold" Grid.Column="1" FontSize="20" Content="시간" Foreground="White"/>
         <TextBlock FontFamily="KoPubDotum Light" Grid.Column="1" Grid.Row="1" FontSize="24" Foreground="White">
             <TextBlock.Inlines>
                 <Run Text="{common:BindingEx Binding={Binding Path=Now, Mode=OneWay}, ConvertMethod=TimeConverter1}"/><LineBreak/>

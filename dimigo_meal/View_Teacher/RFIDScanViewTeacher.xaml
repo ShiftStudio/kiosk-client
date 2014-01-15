@@ -13,9 +13,9 @@
     </Page.Resources>
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Image Source="/dimigo_meal;component/Assets/Resources/card.png" HorizontalAlignment="Center" Margin="0,50" Stretch="None"/>
-            <TextBlock TextAlignment="Center" HorizontalAlignment="Center" FontSize="14">
-                <LineBreak/><Run FontWeight="Bold" Text="교직원증을 리더기에 접촉해 주세요." FontSize="26" Foreground="White"/><LineBreak/>
+            <Image Source="/dimigo_meal;component/Assets/Resources/new/card.png" HorizontalAlignment="Center" Margin="0,42" Stretch="None"/>
+            <TextBlock TextAlignment="Center" HorizontalAlignment="Center">
+                <LineBreak/><Run FontWeight="Bold" Text="교직원증을 리더기에 접촉해 주세요." FontSize="33" Foreground="White"/><LineBreak/>
                 </TextBlock>
             <Button Style="{StaticResource ResourceKey=CancelButton}" x:Name="btn_Cancel" Margin="20" Click="btn_Cancel_Click"/>
         </StackPanel>
