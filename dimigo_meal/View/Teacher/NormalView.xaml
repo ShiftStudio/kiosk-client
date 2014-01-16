@@ -12,8 +12,8 @@
     </Page.Resources>
     <Grid Width="800">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="30,20,35,30">
-            <Button Style="{StaticResource ResourceKey=TeacherNewButton}" x:Name="btn_CheckTeacherMeal" FontSize="20" Width="272" Height="288" Margin="60" Click="btn_CheckTeacherMeal_Click"/>
-            <Button  Style="{StaticResource ResourceKey=StudentNewButton}" x:Name="btn_AddNewStudentMeal" FontSize="20" Width="272" Height="288" Margin="60" Click="btn_AddNewStudentMeal_Click"/>
+            <Button Style="{StaticResource ResourceKey=TeacherNewButton}" x:Name="btn_CheckTeacherMeal" FontSize="20" Width="272" Height="288" Margin="60,0" Click="btn_CheckTeacherMeal_Click"/>
+            <Button  Style="{StaticResource ResourceKey=StudentNewButton}" x:Name="btn_AddNewStudentMeal" FontSize="20" Width="272" Height="288" Margin="60,0" Click="btn_AddNewStudentMeal_Click" IsEnabled="False"/>
         </StackPanel>
     </Grid>
 </Page>
