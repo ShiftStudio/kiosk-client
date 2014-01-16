@@ -1,0 +1,18 @@
+﻿<Page x:Class="dimigo_meal.View.Common.NotMealSupplyTimeView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d">
+    
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,100,0,0">
+            <Image Stretch="Fill" Source="/dimigo_meal;component/Assets/Resources/cooking.png" Width="110" Height="361" HorizontalAlignment="Center" Margin="0,50"/>
+            <TextBlock TextAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="White">
+                <Run FontWeight="Bold" Text="배식 시간이 끝났습니다." FontSize="24"/><LineBreak/>
+                <Run FontSize="14"/><LineBreak/>
+                <Run Text="지금은 배식 시간이 아닙니다."/><LineBreak/>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>

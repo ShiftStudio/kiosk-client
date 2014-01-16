@@ -1,0 +1,22 @@
+﻿<common:RFIDReaderViewBaseEx x:Class="dimigo_meal.View.Teacher.RFIDScanView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:common="clr-namespace:dimigo_meal.Common"
+      mc:Ignorable="d">
+    <Page.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="BorderBrush" Value="Transparent"/>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="/dimigo_meal;component/Assets/Resources/card.png" HorizontalAlignment="Center" Margin="0,42" Stretch="None"/>
+            <TextBlock TextAlignment="Center" HorizontalAlignment="Center">
+                <LineBreak/><Run FontWeight="Bold" Text="교직원증을 리더기에 접촉해 주세요." FontSize="33" Foreground="White"/><LineBreak/>
+                </TextBlock>
+            <Button Style="{StaticResource ResourceKey=CancelButton}" x:Name="btn_Cancel" Margin="20" Click="btn_Cancel_Click"/>
+        </StackPanel>
+    </Grid>
+</common:RFIDReaderViewBaseEx>

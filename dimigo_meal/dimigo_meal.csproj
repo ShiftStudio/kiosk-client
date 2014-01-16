@@ -14,25 +14,62 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <PublishUrl>게시\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug-Student|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug-Student\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;STUDENT_MODE</DefineConstants>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug-Teacher|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug-Teacher\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;TEACHER_MODE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-Student|AnyCPU'">
+    <OutputPath>bin\Release-Student\</OutputPath>
+    <DefineConstants>TRACE;STUDENT_MODE</DefineConstants>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-Teacher|AnyCPU'">
+    <OutputPath>bin\Release-Teacher\</OutputPath>
+    <DefineConstants>TRACE;TEACHER_MODE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -41,7 +78,6 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,166 +96,131 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\MyUtil.cs" />
     <Compile Include="Common\MyVideoPlayer.cs" />
     <Compile Include="Common\PopupPage.cs" />
     <Compile Include="EmbeddedAssembly.cs" />
-    <Compile Include="MyAPI\Model\clsEventStatus.cs" />
-    <Compile Include="MyAPI\RESTAPI\ApiStatus.cs" />
-    <Compile Include="MyAPI\RESTAPI\FoodTicketTeacherApi.cs" />
-    <Compile Include="MyAPI\RESTAPI\NewDataCheckApi.cs" />
-    <Compile Include="MyAPI\RESTAPI\NewDataCheckApiRequest.cs" />
-    <Compile Include="MyAPI\RESTAPI\NewDataCheckApiResponse.cs" />
+    <Compile Include="Model\DataSyncManager.cs" />
+    <Compile Include="Model\GlobalSettings.cs" />
+    <Compile Include="Model\ViewStateManager.cs" />
     <Compile Include="Common\RFIDReaderViewBaseEx.cs" />
-    <Compile Include="MyAPI\RESTAPI\SSecurityManager.cs" />
-    <Compile Include="MyAPI\RESTAPI\FoodTicketTeacherApiRequest.cs" />
-    <Compile Include="MyBaseLib\Diagnostics\AppRealCrashException.cs" />
-    <Compile Include="MyBaseLib\Diagnostics\DebugEx.cs" />
-    <Compile Include="MyBaseLib\Diagnostics\IntendedCrashException.cs" />
-    <Compile Include="MyBaseLib\Diagnostics\IntendedNonCrashException.cs" />
-    <Compile Include="MyBaseLib\Network\HttpApiBase.cs" />
-    <Compile Include="MyBaseLib\Network\HttpApiRequestBase.cs" />
-    <Compile Include="MyBaseLib\Network\HttpApiResponseBase.cs" />
-    <Compile Include="MyBaseLib\Network\HttpHelper.cs" />
-    <Compile Include="MyBaseLib\Network\HttpHelperEventArgs.cs" />
-    <Compile Include="MyBaseLib\Network\HttpHelperMultiPartData.cs" />
-    <Compile Include="MyBaseLib\Network\HttpHelperUploadProgressEventArgs.cs" />
-    <Compile Include="MyBaseLib\Network\HttpSchemeType.cs" />
     <Compile Include="Common\RFIDReaderPageBase.cs" />
-    <Compile Include="MyAPI\RESTAPI\FoodTicketStudentApi.cs" />
-    <Compile Include="MyAPI\RESTAPI\FoodTicketStudentApiRequest.cs" />
-    <Compile Include="MyAPI\RESTAPI\FoodTicketCheckApiResponse.cs" />
-    <Compile Include="MyAPI\Model\clsError.cs" />
-    <Compile Include="MyAPI\Model\clsEvent.cs" />
-    <Compile Include="MyAPI\Model\clsFood.cs" />
-    <Compile Include="MyAPI\Model\clsMeal.cs" />
-    <Compile Include="MyAPI\Model\clsMealData.cs" />
-    <Compile Include="MyAPI\Model\clsMealState.cs" />
-    <Compile Include="MyAPI\Model\clsPeople.cs" />
-    <Compile Include="MyAPI\Model\HttpApiRequestBaseEx.cs" />
-    <Compile Include="MyAPI\Common\NotifiableModelBase.cs" />
-    <Compile Include="NarrationPlayer.cs" />
-    <Compile Include="View_Common\MainWindowViewModel.cs" />
+    <Compile Include="Model\NarrationPlayer.cs" />
     <Compile Include="Common\BindingEx.cs" />
     <Compile Include="Common\DelegateCommand.cs" />
     <Compile Include="Common\ViewModelBase.cs" />
-    <Compile Include="View_Common\MainWindowViewState.cs" />
-    <Compile Include="View_Common\ViewMode.cs" />
-    <Compile Include="View_Common\ResultDisplayViewModel.cs" />
     <Compile Include="Common\RichTextBlock.cs" />
-    <Compile Include="View_Common\ResultDisplayView.xaml.cs">
-      <DependentUpon>ResultDisplayView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View_Common\NormalView.xaml.cs">
-      <DependentUpon>NormalView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View_Common\MainWindowViewShort.xaml.cs">
-      <DependentUpon>MainWindowViewShort.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View_Student\RFIDScanViewStudent.xaml.cs">
-      <DependentUpon>RFIDScanViewStudent.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View_Student\NotRFIDScanView.xaml.cs">
-      <DependentUpon>NotRFIDScanView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View_Common\ViewTemplate\MealContainer1.xaml.cs">
-      <DependentUpon>MealContainer1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View_Common\ViewTemplate\MealContainer2.xaml.cs">
-      <DependentUpon>MealContainer2.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View_Common\ViewTemplate\MealContainer3.xaml.cs">
-      <DependentUpon>MealContainer3.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View_Common\ViewTemplate\MealHeader.xaml.cs">
-      <DependentUpon>MealHeader.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View_Common\NotMealSupplyTimeView.xaml.cs">
-      <DependentUpon>NotMealSupplyTimeView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View_Common\ErrorDisplayView.xaml.cs">
-      <DependentUpon>ErrorDisplayView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View_Common\ErrorDisplayViewModel.cs" />
-    <Compile Include="View_Teacher\ChooseMealCountView.xaml.cs">
-      <DependentUpon>ChooseMealCountView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View_Teacher\NormalViewTeacher.xaml.cs">
-      <DependentUpon>NormalViewTeacher.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View_Teacher\RFIDScanViewTeacher.xaml.cs">
-      <DependentUpon>RFIDScanViewTeacher.xaml</DependentUpon>
-    </Compile>
-    <Page Include="View_Common\MainWindowView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View_Common\MainWindowView.xaml.cs">
+    <Compile Include="View\Common\ErrorDisplayView.xaml.cs">
+      <DependentUpon>ErrorDisplayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Common\ErrorDisplayViewModel.cs" />
+    <Compile Include="View\Common\MainWindowView.xaml.cs">
       <DependentUpon>MainWindowView.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\Common\MainWindowViewModel.cs" />
+    <Compile Include="View\Common\MainWindowViewState.cs" />
+    <Compile Include="View\Common\NormalView.xaml.cs">
+      <DependentUpon>NormalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Common\NotMealSupplyTimeView.xaml.cs">
+      <DependentUpon>NotMealSupplyTimeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Common\ResultDisplayView.xaml.cs">
+      <DependentUpon>ResultDisplayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Common\ResultDisplayViewModel.cs" />
+    <Compile Include="Model\ViewMode.cs" />
+    <Compile Include="View\Student\NotRFIDScanView.xaml.cs">
+      <DependentUpon>NotRFIDScanView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\RFIDScanView.xaml.cs">
+      <DependentUpon>RFIDScanView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher\ChooseMealCountView.xaml.cs">
+      <DependentUpon>ChooseMealCountView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher\NormalView.xaml.cs">
+      <DependentUpon>NormalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher\RFIDScanView.xaml.cs">
+      <DependentUpon>RFIDScanView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher\RFIDScanViewModel.cs" />
+    <Compile Include="View\Template\MealContainer1.xaml.cs">
+      <DependentUpon>MealContainer1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Template\MealContainer2.xaml.cs">
+      <DependentUpon>MealContainer2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Template\MealContainer3.xaml.cs">
+      <DependentUpon>MealContainer3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Template\MealHeader.xaml.cs">
+      <DependentUpon>MealHeader.xaml</DependentUpon>
     </Compile>
     <Page Include="Assets\shared.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View_Common\ResultDisplayView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View_Common\NormalView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View_Common\MainWindowViewShort.xaml">
+    <Page Include="View\Common\ErrorDisplayView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View_Student\RFIDScanViewStudent.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View_Student\NotRFIDScanView.xaml">
+    <Page Include="View\Common\MainWindowView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View_Common\ViewTemplate\MealContainer1.xaml">
+    <Page Include="View\Common\NormalView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View_Common\ViewTemplate\MealContainer2.xaml">
+    <Page Include="View\Common\NotMealSupplyTimeView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View_Common\ViewTemplate\MealContainer3.xaml">
+    <Page Include="View\Common\ResultDisplayView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View_Common\ViewTemplate\MealHeader.xaml">
+    <Page Include="View\Student\NotRFIDScanView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View_Common\NotMealSupplyTimeView.xaml">
+    <Page Include="View\Student\RFIDScanView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View_Common\ErrorDisplayView.xaml">
+    <Page Include="View\Teacher\ChooseMealCountView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View_Teacher\ChooseMealCountView.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="View\Teacher\NormalView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="View_Teacher\NormalViewTeacher.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="View\Teacher\RFIDScanView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="View_Teacher\RFIDScanViewTeacher.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="View\Template\MealContainer1.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Template\MealContainer2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Template\MealContainer3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Template\MealHeader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -240,6 +241,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Properties\app.manifest">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -253,45 +257,64 @@
     <Resource Include="Assets\Resources\dimigologo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Resources\character_cook.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\Resources\noimage.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Resources\correct.png" />
-    <Resource Include="Assets\Resources\wrong.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\Resources\background.png" />
     <Resource Include="Assets\Resources\black x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyAPI\MyAPI.csproj">
+      <Project>{7aa9de26-f155-46e9-963a-fc0b92643ccd}</Project>
+      <Name>MyAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyBaseLib\MyBaseLib.csproj">
+      <Project>{38c17649-381d-483d-afaa-aa583252b8db}</Project>
+      <Name>MyBaseLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Resources\b_circle.png" />
+    <Resource Include="Assets\Resources\b_cross.png" />
+    <Resource Include="Assets\Resources\cooking.png" />
+    <Resource Include="Assets\Resources\s\background_static.png" />
+    <Resource Include="Assets\Resources\s\error_unregistered.png" />
+    <Resource Include="Assets\Resources\s\student_card.png" />
+    <Resource Include="Assets\Resources\t\background_static.png" />
+    <Resource Include="Assets\Resources\t\btn_cancel.png" />
+    <Resource Include="Assets\Resources\t\btn_cancel_pressed.png" />
+    <Resource Include="Assets\Resources\t\btn_foodticket.png" />
+    <Resource Include="Assets\Resources\t\btn_foodticket_disabled.png" />
+    <Resource Include="Assets\Resources\t\btn_foodticket_pressed.png" />
+    <Resource Include="Assets\Resources\t\btn_number.png" />
+    <Resource Include="Assets\Resources\t\btn_number_pressed.png" />
+    <Resource Include="Assets\Resources\t\btn_teacher.png" />
+    <Resource Include="Assets\Resources\t\btn_teacher_disabled.png" />
+    <Resource Include="Assets\Resources\t\btn_teacher_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Assets\Resources\card.png" />
-    <Resource Include="Assets\Resources\dotted-line.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MyAPI\LocalAPI\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\Resources\new\b_circle.png" />
-    <Resource Include="Assets\Resources\new\b_cross.png" />
-    <Resource Include="Assets\Resources\new\cooking.png" />
-    <Resource Include="Assets\Resources\new\s\background_static.png" />
-    <Resource Include="Assets\Resources\new\s\error_unregistered.png" />
-    <Resource Include="Assets\Resources\new\s\student_card.png" />
-    <Resource Include="Assets\Resources\new\t\background_static.png" />
-    <Resource Include="Assets\Resources\new\t\btn_cancel.png" />
-    <Resource Include="Assets\Resources\new\t\btn_cancel_pressed.png" />
-    <Resource Include="Assets\Resources\new\t\btn_foodticket.png" />
-    <Resource Include="Assets\Resources\new\t\btn_foodticket_disabled.png" />
-    <Resource Include="Assets\Resources\new\t\btn_foodticket_pressed.png" />
-    <Resource Include="Assets\Resources\new\t\btn_number.png" />
-    <Resource Include="Assets\Resources\new\t\btn_number_pressed.png" />
-    <Resource Include="Assets\Resources\new\t\btn_teacher.png" />
-    <Resource Include="Assets\Resources\new\t\btn_teacher_disabled.png" />
-    <Resource Include="Assets\Resources\new\t\btn_teacher_pressed.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\Resources\new\card.png" />
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile%28x86 및 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

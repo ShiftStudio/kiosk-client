@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="dimigo_meal.View.Tamplate.MealContainer2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:common="clr-namespace:dimigo_meal.Common"
+             mc:Ignorable="d" 
+             d:DesignWidth="1080">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="421"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label FontFamily="KoPubDotum Bold" FontWeight="Bold" FontSize="24" Content="{Binding DisplayNames.ASDFQWERASDF}" Foreground="White"/>
+        <TextBlock FontFamily="KoPubDotum Light" Grid.Row="1" FontSize="24" Foreground="White">
+            <Run Text="{common:BindingEx Binding={Binding Path=MealData.MealStartTime, Mode=OneWay}, ConvertMethod=TimeConverter3}"/>
+            <Run Text="~"/>
+            <Run Text="{common:BindingEx Binding={Binding Path=MealData.MealStopTime, Mode=OneWay}, ConvertMethod=TimeConverter3}"/>
+        </TextBlock>
+
+        <Label FontFamily="KoPubDotum Bold" FontWeight="Bold" Grid.Column="1" FontSize="24" Content="{Binding DisplayNames.QWERASDFQWER}" Foreground="White"/>
+        <TextBlock FontFamily="KoPubDotum Light" Grid.Column="1" Grid.Row="1" FontSize="24" Foreground="White">
+            <Run Text="총 "/><Run Text="{Binding Path=MealState.TotalUser, Mode=OneWay}"/><Run Text="명 중 "/><Run FontWeight="Bold" Text="{Binding Path=MealState.ProcessedUser, Mode=OneWay}"/><Run Text="명 배식 완료"/>
+        </TextBlock>
+    </Grid>
+</UserControl>

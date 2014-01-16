@@ -40,7 +40,7 @@
     <Style x:Key="NumberButton" TargetType="{x:Type Button}">
         <Setter Property="Background">
             <Setter.Value>
-                <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_number.png"/>
+                <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/t/btn_number.png"/>
             </Setter.Value>
         </Setter>
         <Setter Property="Foreground" Value="White"/>
@@ -71,7 +71,7 @@
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background">
                     <Setter.Value>
-                        <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_number_pressed.png"/>
+                        <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/t/btn_number_pressed.png"/>
                     </Setter.Value>
                 </Setter>
             </Trigger>
@@ -81,7 +81,7 @@
     <Style x:Key="CancelButton" TargetType="{x:Type Button}">
         <Setter Property="Background">
             <Setter.Value>
-                <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_cancel.png"/>
+                <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/t/btn_cancel.png"/>
             </Setter.Value>
         </Setter>
         <Setter Property="BorderBrush" Value="Transparent"/>
@@ -108,7 +108,7 @@
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background">
                     <Setter.Value>
-                        <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_cancel_pressed.png"/>
+                        <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/t/btn_cancel_pressed.png"/>
                     </Setter.Value>
                 </Setter>
             </Trigger>
@@ -118,7 +118,7 @@
     <Style x:Key="TeacherNewButton" TargetType="{x:Type Button}">
         <Setter Property="Background">
             <Setter.Value>
-                <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_teacher.png"/>
+                <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/t/btn_teacher.png"/>
             </Setter.Value>
         </Setter>
         <Setter Property="BorderBrush" Value="Transparent"/>
@@ -143,14 +143,14 @@
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background">
                     <Setter.Value>
-                        <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_teacher_pressed.png"/>
+                        <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/t/btn_teacher_pressed.png"/>
                     </Setter.Value>
                 </Setter>
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Background">
                     <Setter.Value>
-                        <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_teacher_disabled.png"/>
+                        <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/t/btn_teacher_disabled.png"/>
                     </Setter.Value>
                 </Setter>
             </Trigger>
@@ -160,7 +160,7 @@
     <Style x:Key="StudentNewButton" TargetType="{x:Type Button}">
         <Setter Property="Background">
             <Setter.Value>
-                <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_foodticket.png"/>
+                <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/t/btn_foodticket.png"/>
             </Setter.Value>
         </Setter>
         <Setter Property="BorderBrush" Value="Transparent"/>
@@ -185,14 +185,14 @@
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background">
                     <Setter.Value>
-                        <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_foodticket_pressed.png"/>
+                        <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/t/btn_foodticket_pressed.png"/>
                     </Setter.Value>
                 </Setter>
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Background">
                     <Setter.Value>
-                        <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/new/t/btn_foodticket_disabled.png"/>
+                        <ImageBrush ImageSource="/dimigo_meal;component/Assets/Resources/t/btn_foodticket_disabled.png"/>
                     </Setter.Value>
                 </Setter>
             </Trigger>

@@ -1,0 +1,18 @@
+﻿<Page x:Class="dimigo_meal.View.Common.NormalView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-30,0,0">
+            <Image Stretch="Fill" Source="/dimigo_meal;component/Assets/Resources/cooking.png" Width="110" Height="361" HorizontalAlignment="Center" Margin="0,80"/>
+            <TextBlock FontFamily="KoPubDotum Light" TextAlignment="Center" HorizontalAlignment="Center" FontSize="30" Foreground="White">
+                <Run FontFamily="KoPubDotum" FontWeight="Bold" Text="지금은 급식 시간이 아닙니다." FontSize="40"/><LineBreak/>
+                <Run/><LineBreak/>
+                <Run Text="급식실에서 맛있는 식사를 준비하고 있습니다."/><LineBreak/>
+                <Run Text="조금만 기다려주세요!"/>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>

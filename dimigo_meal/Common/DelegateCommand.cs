@@ -31,6 +31,11 @@ namespace dimigo_meal.Common
             if (executeMethod != null)
                 executeMethod(parameter);
         }
+        public void Execute()
+        {
+            if (executeMethod != null)
+                executeMethod(default(T));
+        }
 
         #region ICommand Members
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dimigo_meal.Model;
+using System;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
@@ -31,7 +32,7 @@ namespace dimigo_meal.Common
             if (--PageLimitTime <= 0)
             {
                 Timer.Stop();
-                App.GoHomeCommand.Execute(null);
+                ViewStateManager.NavigateHome();
             }
         }
 

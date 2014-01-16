@@ -3,16 +3,56 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dimigo_meal", "dimigo_meal\dimigo_meal.csproj", "{FC47A764-8767-4953-BA12-08B5B8DB6E6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBaseLib", "MyBaseLib\MyBaseLib.csproj", "{38C17649-381D-483D-AFAA-AA583252B8DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAPI", "MyAPI\MyAPI.csproj", "{7AA9DE26-F155-46E9-963A-FC0B92643CCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug-Student|Any CPU = Debug-Student|Any CPU
+		Debug-Teacher|Any CPU = Debug-Teacher|Any CPU
 		Release|Any CPU = Release|Any CPU
+		Release-Student|Any CPU = Release-Student|Any CPU
+		Release-Teacher|Any CPU = Release-Teacher|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FC47A764-8767-4953-BA12-08B5B8DB6E6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC47A764-8767-4953-BA12-08B5B8DB6E6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC47A764-8767-4953-BA12-08B5B8DB6E6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC47A764-8767-4953-BA12-08B5B8DB6E6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC47A764-8767-4953-BA12-08B5B8DB6E6B}.Debug|Any CPU.ActiveCfg = Debug-Teacher|Any CPU
+		{FC47A764-8767-4953-BA12-08B5B8DB6E6B}.Debug|Any CPU.Build.0 = Debug-Teacher|Any CPU
+		{FC47A764-8767-4953-BA12-08B5B8DB6E6B}.Debug-Student|Any CPU.ActiveCfg = Debug-Student|Any CPU
+		{FC47A764-8767-4953-BA12-08B5B8DB6E6B}.Debug-Student|Any CPU.Build.0 = Debug-Student|Any CPU
+		{FC47A764-8767-4953-BA12-08B5B8DB6E6B}.Debug-Teacher|Any CPU.ActiveCfg = Debug-Teacher|Any CPU
+		{FC47A764-8767-4953-BA12-08B5B8DB6E6B}.Debug-Teacher|Any CPU.Build.0 = Debug-Teacher|Any CPU
+		{FC47A764-8767-4953-BA12-08B5B8DB6E6B}.Release|Any CPU.ActiveCfg = Release-Teacher|Any CPU
+		{FC47A764-8767-4953-BA12-08B5B8DB6E6B}.Release|Any CPU.Build.0 = Release-Teacher|Any CPU
+		{FC47A764-8767-4953-BA12-08B5B8DB6E6B}.Release-Student|Any CPU.ActiveCfg = Release-Student|Any CPU
+		{FC47A764-8767-4953-BA12-08B5B8DB6E6B}.Release-Student|Any CPU.Build.0 = Release-Student|Any CPU
+		{FC47A764-8767-4953-BA12-08B5B8DB6E6B}.Release-Teacher|Any CPU.ActiveCfg = Release-Teacher|Any CPU
+		{FC47A764-8767-4953-BA12-08B5B8DB6E6B}.Release-Teacher|Any CPU.Build.0 = Release-Teacher|Any CPU
+		{38C17649-381D-483D-AFAA-AA583252B8DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38C17649-381D-483D-AFAA-AA583252B8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38C17649-381D-483D-AFAA-AA583252B8DB}.Debug-Student|Any CPU.ActiveCfg = Debug|Any CPU
+		{38C17649-381D-483D-AFAA-AA583252B8DB}.Debug-Student|Any CPU.Build.0 = Debug|Any CPU
+		{38C17649-381D-483D-AFAA-AA583252B8DB}.Debug-Teacher|Any CPU.ActiveCfg = Debug|Any CPU
+		{38C17649-381D-483D-AFAA-AA583252B8DB}.Debug-Teacher|Any CPU.Build.0 = Debug|Any CPU
+		{38C17649-381D-483D-AFAA-AA583252B8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38C17649-381D-483D-AFAA-AA583252B8DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38C17649-381D-483D-AFAA-AA583252B8DB}.Release-Student|Any CPU.ActiveCfg = Release|Any CPU
+		{38C17649-381D-483D-AFAA-AA583252B8DB}.Release-Student|Any CPU.Build.0 = Release|Any CPU
+		{38C17649-381D-483D-AFAA-AA583252B8DB}.Release-Teacher|Any CPU.ActiveCfg = Release|Any CPU
+		{38C17649-381D-483D-AFAA-AA583252B8DB}.Release-Teacher|Any CPU.Build.0 = Release|Any CPU
+		{7AA9DE26-F155-46E9-963A-FC0B92643CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AA9DE26-F155-46E9-963A-FC0B92643CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AA9DE26-F155-46E9-963A-FC0B92643CCD}.Debug-Student|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AA9DE26-F155-46E9-963A-FC0B92643CCD}.Debug-Student|Any CPU.Build.0 = Debug|Any CPU
+		{7AA9DE26-F155-46E9-963A-FC0B92643CCD}.Debug-Teacher|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AA9DE26-F155-46E9-963A-FC0B92643CCD}.Debug-Teacher|Any CPU.Build.0 = Debug|Any CPU
+		{7AA9DE26-F155-46E9-963A-FC0B92643CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AA9DE26-F155-46E9-963A-FC0B92643CCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AA9DE26-F155-46E9-963A-FC0B92643CCD}.Release-Student|Any CPU.ActiveCfg = Release|Any CPU
+		{7AA9DE26-F155-46E9-963A-FC0B92643CCD}.Release-Student|Any CPU.Build.0 = Release|Any CPU
+		{7AA9DE26-F155-46E9-963A-FC0B92643CCD}.Release-Teacher|Any CPU.ActiveCfg = Release|Any CPU
+		{7AA9DE26-F155-46E9-963A-FC0B92643CCD}.Release-Teacher|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
