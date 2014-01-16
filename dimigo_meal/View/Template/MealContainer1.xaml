@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              d:DesignWidth="1080">
     <Grid>
-        <Label FontFamily="KoPubDotumBold" FontWeight="Bold" FontSize="72px" Content="{Binding Path=MealData.MealName}" Foreground="White"/>
-        <TextBlock Margin="3,90,0,0" FontFamily="KoPubDotumLight" FontSize="30px" Text="{common:BindingEx Binding={Binding Path=MealData.FoodList, Mode=OneWay}, ConvertMethod=FoodListConverter}" Foreground="White" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
+        <Label FontFamily="KoPubDotum Bold" FontWeight="Bold" FontSize="72px" Content="{Binding Path=MealData.MealName}" Foreground="White"/>
+        <TextBlock Margin="3,90,0,0" FontFamily="KoPubDotum Light" FontSize="30px" Text="{common:BindingEx Binding={Binding Path=MealData.FoodList, Mode=OneWay}, ConvertMethod=FoodListConverter}" Foreground="White" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
     </Grid>
 </UserControl>
