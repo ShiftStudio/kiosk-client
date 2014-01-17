@@ -65,16 +65,13 @@ namespace dimigo_meal.Model
             NewDataCheckApi apiObj = sender as NewDataCheckApi;
             NewDataCheckApiResponse response = apiObj.HttpApiResponse as NewDataCheckApiResponse;
 
-            if (response.Status >= 0)
+            if (response.Meal != null)
             {
                 //Used delegate to prevent thread conflict
                 ViewStateManager.MainWindow.Dispatcher.BeginInvoke(new Action(() =>
                 {
-                    if (response.Meal != null)
-                    {
-                        ViewStateManager.MainWindow.ViewModel.MealState = response.Meal.MealState;
-                        ViewStateManager.MainWindow.ViewModel.MealData = response.Meal.MealData;
-                    }
+                    ViewStateManager.MainWindow.ViewModel.MealState = response.Meal.MealState;
+                    ViewStateManager.MainWindow.ViewModel.MealData = response.Meal.MealData;
                 }));
             }
         }

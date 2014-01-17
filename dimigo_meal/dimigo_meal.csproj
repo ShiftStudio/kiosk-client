@@ -281,9 +281,6 @@
     <Resource Include="Assets\Resources\noimage.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Resources\black x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\MyBaseLib\MyBaseLib.csproj">
       <Project>{38c17649-381d-483d-afaa-aa583252b8db}</Project>
       <Name>MyBaseLib</Name>
