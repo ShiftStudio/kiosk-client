@@ -21,12 +21,15 @@ namespace dimigo_meal
                     System.Windows.Markup.XmlLanguage.GetLanguage(
                     System.Globalization.CultureInfo.CurrentCulture.IetfLanguageTag)));
 
+            #if STUDENT_MODE && !DEBUG
+            MyUtil.ShowCursor(false);
+            #endif
+
             #if DEBUG
             ViewStateManager.MainWindow = new MainWindowView();
             ViewStateManager.MainWindow.Topmost = true;
             ViewStateManager.MainWindow.Show();
             #else
-            MyUtil.ShowCursor(false);
             ViewStateManager.MainWindow = new MainWindowView();
             ViewStateManager.MainWindow.Show();
             #endif

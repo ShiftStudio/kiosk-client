@@ -100,7 +100,6 @@
     <Compile Include="Common\MyVideoPlayer.cs" />
     <Compile Include="Common\PopupPage.cs" />
     <Compile Include="EmbeddedAssembly.cs" />
-    <Compile Include="KioskAPI.cs" />
     <Compile Include="MealAPI\APISettings.cs" />
     <Compile Include="MealAPI\Common\HttpApiRequestBaseEx.cs" />
     <Compile Include="MealAPI\Common\NotifiableModelBase.cs" />
@@ -336,6 +335,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MealAPI\LocalAPI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Resources\card_nouse.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
