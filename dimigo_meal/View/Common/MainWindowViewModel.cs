@@ -1,7 +1,7 @@
 ﻿using dimigo_meal.Common;
 using dimigo_meal.Model;
-using MyAPI.Model;
-using MyAPI.RESTAPI;
+using MealAPI.Model;
+using MealAPI.RESTAPI;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -93,24 +93,9 @@ namespace dimigo_meal.View.Common
             return _time.ToString("tt");
         }
 
-        public string TimeConverter2(DateTime _time)
-        {
-            return _time.ToString("hh:mm:ss");
-        }
-
         public string TimeConverter3(DateTime _time)
         {
             return _time.ToString("tt hh시 mm분");
-        }
-
-        public string DateConverter1(DateTime _time)
-        {
-            return _time.ToString("yyyy년");
-        }
-
-        public string DateConverter2(DateTime _time)
-        {
-            return _time.ToString("MM월 dd일");
         }
 
         public string DateConverter3(DateTime _time)

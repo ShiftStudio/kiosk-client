@@ -2,8 +2,8 @@
 using dimigo_meal.Model;
 using dimigo_meal.View;
 using dimigo_meal.View.Common;
-using MyAPI.Model;
-using MyAPI.RESTAPI;
+using MealAPI.Model;
+using MealAPI.RESTAPI;
 using MyBaseLib.Network;
 using System;
 using System.Collections.Generic;

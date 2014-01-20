@@ -18,11 +18,12 @@
         <Label FontFamily="KoPubDotum Bold" FontWeight="Bold" FontSize="20px" Content="날짜" Foreground="White" Margin="1,0,0,0"/>
         <TextBlock FontFamily="KoPubDotum Light" Grid.Row="1" FontSize="24" Foreground="White">
             <TextBlock.Inlines>
-                <Run Text="{common:BindingEx Binding={Binding Path=Now, Mode=OneWay}, ConvertMethod=DateConverter1}"/><LineBreak/>
+                <Run Text="{Binding Path=Now, Mode=OneWay, StringFormat='{}{0:yyyy년}'}"/><LineBreak/>
                 <Run FontSize="1"/><LineBreak/>
-                <Run FontFamily="KoPubDotum" FontWeight="Bold" Text="{common:BindingEx Binding={Binding Path=Now, Mode=OneWay}, ConvertMethod=DateConverter2}"/><LineBreak/>
+                <Run FontFamily="KoPubDotum" FontWeight="Bold" Text="{Binding Path=Now, Mode=OneWay, StringFormat='{}{0:MM월 dd일}'}"/><LineBreak/>
                 <Run FontSize="1"/><LineBreak/>
                 <Run Text="{common:BindingEx Binding={Binding Path=Now, Mode=OneWay}, ConvertMethod=DateConverter3}"/>
+                <!--<Run Text="{Binding Path=Now, Mode=OneWay, StringFormat='{}{0:dddd}'}"/><LineBreak/>-->
             </TextBlock.Inlines>
         </TextBlock>
 
@@ -31,7 +32,7 @@
             <TextBlock.Inlines>
                 <Run Text="{common:BindingEx Binding={Binding Path=Now, Mode=OneWay}, ConvertMethod=TimeConverter1}"/><LineBreak/>
                 <Run FontSize="1"/><LineBreak/>
-                <Run FontFamily="KoPubDotum" FontWeight="Bold" Text="{common:BindingEx Binding={Binding Path=Now, Mode=OneWay}, ConvertMethod=TimeConverter2}"/>
+                <Run FontFamily="KoPubDotum" FontWeight="Bold" Text="{Binding Path=Now, Mode=OneWay, StringFormat='{}{0:hh:mm:ss}'}"/>
             </TextBlock.Inlines>
         </TextBlock>
     </Grid>

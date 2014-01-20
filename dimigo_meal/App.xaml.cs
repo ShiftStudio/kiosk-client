@@ -15,12 +15,21 @@ namespace dimigo_meal
         {
             base.OnStartup(e);
             MyUtil.WPFNavigateSoundDisable();
-            #if !DEBUG
-            MyUtil.ShowCursor(false);
-            #endif
+            
+            FrameworkElement.LanguageProperty.OverrideMetadata(typeof(FrameworkElement),
+                new FrameworkPropertyMetadata(
+                    System.Windows.Markup.XmlLanguage.GetLanguage(
+                    System.Globalization.CultureInfo.CurrentCulture.IetfLanguageTag)));
 
+            #if DEBUG
+            ViewStateManager.MainWindow = new MainWindowView();
+            ViewStateManager.MainWindow.Topmost = true;
+            ViewStateManager.MainWindow.Show();
+            #else
+            MyUtil.ShowCursor(false);
             ViewStateManager.MainWindow = new MainWindowView();
             ViewStateManager.MainWindow.Show();
+            #endif
 
             //global exHandling
             AppDomain.CurrentDomain.UnhandledException += ViewStateManager.OnUnhandledException;

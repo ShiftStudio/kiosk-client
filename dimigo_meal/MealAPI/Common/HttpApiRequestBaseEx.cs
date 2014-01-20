@@ -1,7 +1,7 @@
-﻿using MyAPI.RESTAPI;
+﻿using MealAPI.RESTAPI;
 using MyBaseLib.Network;
 
-namespace MyAPI.Common
+namespace MealAPI.Common
 {
     public abstract class HttpApiResponseBaseEx : HttpApiResponseBase
     {

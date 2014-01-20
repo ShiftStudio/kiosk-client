@@ -100,6 +100,28 @@
     <Compile Include="Common\MyVideoPlayer.cs" />
     <Compile Include="Common\PopupPage.cs" />
     <Compile Include="EmbeddedAssembly.cs" />
+    <Compile Include="KioskAPI.cs" />
+    <Compile Include="MealAPI\APISettings.cs" />
+    <Compile Include="MealAPI\Common\HttpApiRequestBaseEx.cs" />
+    <Compile Include="MealAPI\Common\NotifiableModelBase.cs" />
+    <Compile Include="MealAPI\Model\clsError.cs" />
+    <Compile Include="MealAPI\Model\clsEvent.cs" />
+    <Compile Include="MealAPI\Model\clsEventStatus.cs" />
+    <Compile Include="MealAPI\Model\clsFood.cs" />
+    <Compile Include="MealAPI\Model\clsMeal.cs" />
+    <Compile Include="MealAPI\Model\clsMealData.cs" />
+    <Compile Include="MealAPI\Model\clsMealState.cs" />
+    <Compile Include="MealAPI\Model\clsPeople.cs" />
+    <Compile Include="MealAPI\RESTAPI\ApiStatus.cs" />
+    <Compile Include="MealAPI\RESTAPI\FoodTicketCheckApiResponse.cs" />
+    <Compile Include="MealAPI\RESTAPI\FoodTicketStudentApi.cs" />
+    <Compile Include="MealAPI\RESTAPI\FoodTicketStudentApiRequest.cs" />
+    <Compile Include="MealAPI\RESTAPI\FoodTicketTeacherApi.cs" />
+    <Compile Include="MealAPI\RESTAPI\FoodTicketTeacherApiRequest.cs" />
+    <Compile Include="MealAPI\RESTAPI\NewDataCheckApi.cs" />
+    <Compile Include="MealAPI\RESTAPI\NewDataCheckApiRequest.cs" />
+    <Compile Include="MealAPI\RESTAPI\NewDataCheckApiResponse.cs" />
+    <Compile Include="MealAPI\RESTAPI\SSecurityManager.cs" />
     <Compile Include="Model\DataSyncManager.cs" />
     <Compile Include="Model\GlobalSettings.cs" />
     <Compile Include="Model\ViewStateManager.cs" />
@@ -263,10 +285,6 @@
     <Resource Include="Assets\Resources\black x.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyAPI\MyAPI.csproj">
-      <Project>{7aa9de26-f155-46e9-963a-fc0b92643ccd}</Project>
-      <Name>MyAPI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MyBaseLib\MyBaseLib.csproj">
       <Project>{38c17649-381d-483d-afaa-aa583252b8db}</Project>
       <Name>MyBaseLib</Name>
@@ -315,6 +333,9 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MealAPI\LocalAPI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

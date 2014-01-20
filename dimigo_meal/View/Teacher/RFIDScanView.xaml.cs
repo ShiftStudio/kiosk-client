@@ -1,6 +1,6 @@
 ﻿using dimigo_meal.Common;
 using dimigo_meal.Model;
-using MyAPI.RESTAPI;
+using MealAPI.RESTAPI;
 using System;
 
 namespace dimigo_meal.View.Teacher

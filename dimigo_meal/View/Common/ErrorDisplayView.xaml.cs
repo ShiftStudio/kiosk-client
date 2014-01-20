@@ -1,5 +1,5 @@
 ﻿using dimigo_meal.Common;
-using MyAPI.RESTAPI;
+using MealAPI.RESTAPI;
 using System;
 
 namespace dimigo_meal.View.Common

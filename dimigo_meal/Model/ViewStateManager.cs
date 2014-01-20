@@ -1,7 +1,7 @@
 ﻿using dimigo_meal.View;
 using dimigo_meal.View.Common;
-using MyAPI.Model;
-using MyAPI.RESTAPI;
+using MealAPI.Model;
+using MealAPI.RESTAPI;
 using System;
 using System.Collections.Generic;
 using System.Linq;

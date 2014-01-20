@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace MyAPI.Common
+namespace MealAPI.Common
 {
     public abstract class NotifiableModelBase : INotifyPropertyChanged
     {

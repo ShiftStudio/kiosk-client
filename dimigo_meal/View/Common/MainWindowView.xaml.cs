@@ -1,5 +1,5 @@
 ﻿using dimigo_meal.Model;
-using MyAPI.RESTAPI;
+using MealAPI.RESTAPI;
 using System.Windows;
 
 namespace dimigo_meal.View.Common

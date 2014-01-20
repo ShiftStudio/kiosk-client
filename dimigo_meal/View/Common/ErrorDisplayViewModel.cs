@@ -1,6 +1,6 @@
 ﻿using dimigo_meal.Common;
-using MyAPI.Model;
-using MyAPI.RESTAPI;
+using MealAPI.Model;
+using MealAPI.RESTAPI;
 
 namespace dimigo_meal.View.Common
 {

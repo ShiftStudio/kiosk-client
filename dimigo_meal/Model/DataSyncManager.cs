@@ -1,4 +1,4 @@
-﻿using MyAPI.RESTAPI;
+﻿using MealAPI.RESTAPI;
 using MyBaseLib.Network;
 using dimigo_meal.Common;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using dimigo_meal.View.Common;
-using MyAPI.Model;
+using MealAPI.Model;
 
 namespace dimigo_meal.Model
 {
